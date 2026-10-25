@@ -2,7 +2,7 @@ export const site = {
   name: 'SyntaxCraft',
   brand: 'SyntaxCraft Studio',
   tagline: 'High-Performance Web Engineering & Autonomous Python Automation',
-  description: 'We engineer custom web applications, public data extraction pipelines, and 24/7 workflow automations for growing digital businesses, SaaS founders, and creators.',
+  description: 'We engineer custom full-stack web applications, autonomous workflow automations, and public SEO analytics pipelines for growing digital businesses, founders, and creators.',
   email: 'contact@syntaxcraft.dev',
   domain: 'https://syntaxcraft.dev',
   github: 'https://github.com/syntaxcraft2026',
@@ -11,9 +11,9 @@ export const site = {
   availability: 'Available for New Projects',
   responseSla: 'Guaranteed response within 12 hours',
   stats: [
-    { label: 'Automations & Pipelines Built', value: '120+' },
+    { label: 'Web Applications & Automations Built', value: '120+' },
     { label: 'Average Project Delivery', value: '48h - 5d' },
-    { label: 'Pipeline Uptime Reliability', value: '99.9%' },
+    { label: 'System Uptime Reliability', value: '99.9%' },
     { label: 'Client Code Ownership', value: '100%' }
   ],
   nav: [
@@ -29,9 +29,9 @@ export const site = {
       id: 'python-automation',
       icon: 'terminal',
       title: 'Python Workflow & Task Automation',
-      deck: 'Eliminate repetitive manual tasks with robust, scheduled autonomous background scripts.',
+      deck: 'Eliminate repetitive manual operations with robust, scheduled autonomous background scripts.',
       features: [
-        'Automated file transformation, reporting, and ETL data pipelines',
+        'Automated file transformation, reporting, and accounting data exports',
         'Cron schedulers and daemonized background worker processes',
         'Asynchronous task queues and event-driven data processors',
         'Telegram, Discord, and Slack automated operational bots'
@@ -39,17 +39,17 @@ export const site = {
       tags: ['Python 3.12', 'AsyncIO', 'FastAPI', 'Celery', 'Docker']
     },
     {
-      id: 'data-pipelines',
+      id: 'market-analytics',
       icon: 'database',
-      title: 'Public Data Extraction & ETL Pipelines',
-      deck: 'Harvest, clean, and structure public market datasets and catalog feeds without data loss.',
+      title: 'Public SEO & Market Analytics Pipelines',
+      deck: 'Automated monitoring strictly limited to public SEO metrics, search trend indicators, and website performance.',
       features: [
-        'Compliant public catalog aggregation & automated market research',
-        'Structured ETL pipelines converting raw web data into validated datasets',
-        'Direct export to JSON, CSV, PostgreSQL, or SQLite databases',
-        'Scheduled change monitoring, price parity feeds, and automated alerts'
+        'Public search engine keyword ranking & search volume metrics',
+        'Google Trends and macro market demand indicators',
+        'Core Web Vitals & website performance benchmarking',
+        'Automated scheduled reporting via email or webhook notifications'
       ],
-      tags: ['Python 3.12', 'Pandas', 'ETL Pipelines', 'FastAPI', 'PostgreSQL']
+      tags: ['SEO Analytics', 'Public APIs', 'Google Trends', 'Core Web Vitals', 'Python 3.12']
     },
     {
       id: 'web-engineering',
@@ -87,7 +87,7 @@ export const site = {
       description: 'Ideal for small-to-medium tasks, single-purpose automation scripts, or specific API integrations.',
       popular: false,
       deliverables: [
-        '1 Custom Python automation script or public data pipeline',
+        '1 Custom Python automation script or public SEO analytics pipeline',
         'Complete setup guide and environment documentation',
         'Clean, commented, and typed Python source code',
         '48-Hour Rapid Delivery guarantee',
@@ -104,7 +104,7 @@ export const site = {
       description: 'Our most popular tier: comprehensive workflow automation or a full-featured high-converting web landing page.',
       popular: true,
       deliverables: [
-        'Full modern web application / landing page OR multi-step automation pipeline',
+        'Full modern web application / landing page OR multi-step workflow automation',
         'Automated database integration (SQLite / PostgreSQL / CSV)',
         'Robust error handling, structured logging & failure alerts',
         'Automated background worker or public data pipeline',
@@ -141,6 +141,10 @@ export const site = {
     {
       question: 'What is the typical turnaround time for a project?',
       answer: 'Standard automation scripts and pipelines are typically delivered within 48 to 72 hours. Comprehensive web applications and multi-step architectures are delivered within 3 to 7 business days, depending on project scope.'
+    },
+    {
+      question: 'What public analytics and data types do you support?',
+      answer: 'We exclusively engineer pipelines for non-confidential public metrics: public search engine keyword rankings, Google Trends macro indicators, and website performance benchmarks (Core Web Vitals). We do not scrape personal data (PII) or bypass private authentication.'
     },
     {
       question: 'How do you handle revisions and quality assurance?',

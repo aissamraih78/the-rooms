@@ -26,7 +26,7 @@ const currentYear = new Date().getFullYear()
           <h4>Engineering Services</h4>
           <ul class="footer-links">
             <li><NuxtLink to="/#services">Python Task Automation</NuxtLink></li>
-            <li><NuxtLink to="/#services">Public Data Extraction & ETL</NuxtLink></li>
+            <li><NuxtLink to="/#services">Public SEO & Market Analytics</NuxtLink></li>
             <li><NuxtLink to="/#services">Full-Stack Web Engineering</NuxtLink></li>
             <li><NuxtLink to="/#services">API & Webhook Integrations</NuxtLink></li>
             <li><NuxtLink to="/#pricing">Pricing & Custom Packages</NuxtLink></li>

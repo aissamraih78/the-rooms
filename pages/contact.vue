@@ -37,7 +37,7 @@ useHead({
         <div class="badge" style="margin-bottom: 16px;">Direct Line</div>
         <h1 style="font-size: 2.8rem; margin-bottom: 16px;">Let’s Build Your Next Engineering Project</h1>
         <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 36px;">
-          Have a specific automation pipeline, public data processing workflow, or web application in mind? Send us your technical requirements and our engineering team will evaluate feasibility and deliver a formal quote.
+          Have a specific Python automation script, public SEO analytics pipeline, or modern web application in mind? Send us your technical requirements and our engineering team will evaluate feasibility and deliver a formal quote.
         </p>
 
         <div style="display: grid; gap: 20px; padding: 28px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">

@@ -13,7 +13,7 @@
 SyntaxCraft Studio is an independent bespoke software development and automation studio. We design, build, and deploy production-grade software solutions:
 - **Full-Stack Web Engineering:** Fast, SEO-optimized Nuxt 3 & modern web architectures.
 - **Python Automation Pipelines:** Resilient background workers, webhook integrations, and API synchronizations.
-- **Public Data Extraction & ETL:** Compliant, rate-limited public dataset indexing, catalog aggregations, and structured ETL workflows.
+- **Public SEO & Market Analytics:** Compliant, public search engine ranking statistics, Google Trends indexing, and website performance benchmarks.
 
 ---
 
