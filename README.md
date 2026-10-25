@@ -1,138 +1,69 @@
-# The Rooms
+# SyntaxCraft Studio
 
-A coastal guesthouse website with three room guides, seasonal rate comparison, and honest date-led enquiries.
+> High-performance full-stack web engineering, custom Python automation pipelines, and enterprise-grade data scraping workflows.
+
+Live website: [https://syntaxcraft.dev](https://syntaxcraft.dev)
+
+---
 
 ## Overview
 
-The Rooms is a complete website for an independent B&B, guesthouse, or small coastal inn. It gives prospective guests a clear sense of the house and its setting while keeping practical details—beds, access notes, room size, outlook, and rates—easy to compare.
+SyntaxCraft Studio is an independent bespoke software development and automation studio. We design, build, and deploy production-grade software solutions:
+- **Full-Stack Web Engineering:** Fast, SEO-optimized Nuxt 3 & modern web architectures.
+- **Python Automation Pipelines:** Resilient background workers, webhook integrations, and API synchronizations.
+- **Enterprise Data Extraction:** Reliable, compliant web scraping, rate-limited harvesting, and structured ETL workflows.
 
-Guests can browse all three rooms, open direct room-detail routes, compare seasonal prices, and choose arrival and departure dates. Dates remain in the URL and are passed to a configured booking service; when no service is configured, the same journey creates a pre-filled email enquiry without implying live availability.
+---
 
 ## Features
 
-- Browse three data-driven rooms and open a static detail route for each one.
-- Compare room characteristics and seasonal nightly prices in an accessible table.
-- Validate arrival and departure dates, restore them from the URL, and keep URL state in sync.
-- Pass selected dates and room name to a configured booking URL or use an honest `mailto:` fallback.
-- Read five expandable house FAQs backed by `FAQPage` JSON-LD.
-- Use direct-loaded static routes at `/rooms/lookout`, `/rooms/boat-house`, and `/rooms/salt-store`.
-- Navigate responsive layouts designed for desktop, `390px`, and `320px` viewports.
+- **Performance-First Nuxt 3 Architecture:** Server-side rendered and static prerendered hybrid architecture.
+- **Interactive Sandbox & Terminal Showcase:** Live simulation of scraper engines and webhook processors.
+- **Transparent Service Pricing:** Predictable pricing tiers with clear deliverables and turnaround SLAs.
+- **Lemon Squeezy Merchant of Record Compliance:** Strict adherence to digital service delivery policies, clear SLAs, complete terms, refund policies, and privacy terms.
+- **Mobile-Responsive UI:** Sleek cyberpunk-dark aesthetic with fluid responsive design across all viewports.
 
-## Tech stack
+---
 
+## Tech Stack
+
+- **Framework:** [Nuxt 3](https://nuxt.com/) (Vue 3, Nitro)
 - **Language:** TypeScript
-- **Framework:** Nuxt 3 and Vue 3
-- **Build tool:** Nuxt / Vite (SSR)
-- **Styling:** Shared CSS with custom properties and scoped component structure
-- **Content:** Committed JSON and typed TypeScript configuration
-- **Fonts:** Local `@fontsource-variable` packages
-- **Overrides:** `simple-git@^4.0.2` — `@nuxt/devtools@3` pins `simple-git@^3.36.0`, which carries unpatched advisories; `simple-git` is only imported by `@nuxt/devtools`, and `simple-git@4` dropped the default export devtools 3 uses, so `devtools.enabled` is `false` in `nuxt.config.ts`. Set it back to `true` and drop the override once Nuxt depends on `@nuxt/devtools@4`. `@vitejs/devtools@^0.5.0` (pre-existing)
+- **Styling:** Custom CSS design system with CSS custom properties (Cyber-dark / Cyan & Indigo theme)
+- **Deployment:** Hostinger Web Apps + Cloudflare Edge Proxy & SSL
 
-## Getting started
+---
+
+## Local Development
 
 ### Prerequisites
-
-- Node.js 22.12 or newer
+- Node.js >= 20.x
 - npm
 
 ### Installation
-
 ```bash
 npm install
 ```
 
-### Development
-
+### Development Server
 ```bash
 npm run dev
 ```
 
-Open the local URL printed by the development server.
-
-## Available scripts
-
-- `npm run dev` — start the local development server
-- `npm run build` — type-check and create a production build
-- `npm run lint` — run ESLint
-- `npm run preview` — preview the production build locally
-
-## Project structure
-
-```text
-assets/
-├── images/
-└── styles/main.css
-components/
-├── DatePlanner.vue
-├── FaqList.vue
-├── RoomCard.vue
-├── RoomComparison.vue
-├── SiteFooter.vue
-├── SiteHeader.vue
-└── TideRule.vue
-data/
-├── faqs.ts
-├── rates.json
-├── rooms.json
-└── site.ts
-pages/
-├── index.vue
-└── rooms/[slug].vue
-public/
-└── favicon.svg
-types/
-└── index.ts
-utils/
-└── booking.ts
-app.vue
-eslint.config.mjs
-nuxt.config.ts
-package.json
-tsconfig.json
-```
-
-## Personalizing
-
-### Content and business data
-
-Edit `data/site.ts` for the guesthouse name, location, contact details, address, booking URL, check-in times, hero copy, and field notes. Edit `data/rooms.json` for room copy and facilities, `data/rates.json` for seasons and prices, and `data/faqs.ts` for FAQ content.
-
-Set `bookingUrl` in `data/site.ts` to your booking engine. Its URL receives `arrival`, `departure`, and optional `room` query parameters. Leave it empty to keep the pre-filled email enquiry fallback.
-
-### Branding and styles
-
-Edit `assets/styles/main.css` for the sea-glass, chalk, rust, and navy palette, local font families, spacing, layout sizes, tide-line details, and responsive breakpoints. Component markup is organized in `components/`, with page-specific composition in `pages/`.
-
-### Images
-
-Local photos live in `assets/images/` and are imported through `utils/images.ts` or directly by `pages/index.vue`. Keep panoramic hero images near a `16:9` ratio and room images near `4:3`; update each room's useful alt text in `data/rooms.json`.
-
-Photography was downloaded from Pexels and stored locally:
-
-- Coast hero: https://www.pexels.com/photo/body-of-water-near-green-mountain-1001682/
-- Coast path: https://www.pexels.com/photo/sea-dawn-landscape-nature-189349/
-- The Lookout: https://www.pexels.com/photo/white-bed-linen-on-bed-164595/
-- The Boat House: https://www.pexels.com/photo/white-bed-near-brown-wooden-nightstand-271624/
-- The Salt Store: https://www.pexels.com/photo/bedroom-interior-with-bed-and-nightstands-6585759/
-
-### Routes and features
-
-`pages/index.vue` composes the home page. `pages/rooms/[slug].vue` builds room pages from `data/rooms.json`; matching routes are explicitly prerendered in `nuxt.config.ts`. `components/DatePlanner.vue` owns date input and URL synchronization, while `utils/booking.ts` contains validation and destination-link rules.
-
-### Environment variables
-
-This project does not require environment variables.
-
-## Production build
-
+### Production Build
 ```bash
 npm run build
-npm run preview
 ```
 
-`npm run build` writes a Nuxt SSR app to `.output`. `npm run preview` runs the Nitro server at `.output/server/index.mjs`. This is a server-rendered app, not a static export.
+---
 
-## Screenshots
+## Legal & Compliance
+- **Terms of Service:** [syntaxcraft.dev/terms](https://syntaxcraft.dev/terms)
+- **Privacy Policy:** [syntaxcraft.dev/privacy](https://syntaxcraft.dev/privacy)
+- **Refund & Revision Policy:** [syntaxcraft.dev/refund](https://syntaxcraft.dev/refund)
+- **Direct Contact:** [syntaxcraft.dev/contact](https://syntaxcraft.dev/contact) | `contact@syntaxcraft.dev`
 
-- Thumbnail: `preview/the-rooms-thumbnail.png`
-- Full page: `preview/the-rooms-homepage.png`
+---
+
+## License
+MIT © SyntaxCraft Studio

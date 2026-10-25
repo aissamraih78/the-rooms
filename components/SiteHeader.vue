@@ -4,14 +4,25 @@ import { site } from '~/data/site'
 
 <template>
   <header class="site-header">
-    <NuxtLink class="wordmark" to="/" aria-label="The Rooms, home">
-      <span class="wordmark__main">THE ROOMS</span>
-      <span class="wordmark__place">{{ site.location }}</span>
-    </NuxtLink>
-    <nav aria-label="Main navigation">
-      <NuxtLink to="/#rooms">Rooms</NuxtLink>
-      <NuxtLink to="/#rates">Rates</NuxtLink>
-      <NuxtLink to="/#find-us">Find us</NuxtLink>
-    </nav>
+    <div class="container header-inner">
+      <NuxtLink to="/" class="brand-logo" aria-label="SyntaxCraft Studio Home">
+        <div class="brand-icon">&lt;/&gt;</div>
+        <div class="brand-name">Syntax<span class="brand-tag">Craft</span></div>
+      </NuxtLink>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li v-for="item in site.nav" :key="item.label">
+            <NuxtLink :to="item.href" class="nav-link">{{ item.label }}</NuxtLink>
+          </li>
+        </ul>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <NuxtLink to="/#pricing" class="btn btn-primary btn-sm">
+          Get Started
+        </NuxtLink>
+      </div>
+    </div>
   </header>
 </template>

@@ -1,23 +1,22 @@
 {
-  "name": "the-rooms",
+  "name": "syntaxcraft",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "A static coastal guesthouse field guide with room comparison and honest booking links.",
+  "description": "SyntaxCraft Studio — High-Performance Web Engineering & Autonomous Python Automation",
   "license": "MIT",
+  "author": "SyntaxCraft Studio <contact@syntaxcraft.dev>",
   "engines": {
     "node": ">=22.12.0"
   },
   "scripts": {
     "dev": "nuxt dev",
-    "build": "nuxt typecheck && nuxt build",
-    "lint": "eslint .",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@fontsource-variable/newsreader": "^5.2.8",
-    "@fontsource-variable/work-sans": "^5.2.8",
     "nuxt": "^3.21.11",
     "vue": "^3.5.42"
   },
