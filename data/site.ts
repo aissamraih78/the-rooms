@@ -2,13 +2,16 @@ export const site = {
   name: 'SyntaxCraft',
   brand: 'SyntaxCraft Studio',
   tagline: 'High-Performance Web Engineering & Autonomous Python Automation',
-  description: 'We engineer custom web applications, resilient data scraping pipelines, and 24/7 workflow automations for growing digital businesses, SaaS founders, and creators.',
+  description: 'We engineer custom web applications, public data extraction pipelines, and 24/7 workflow automations for growing digital businesses, SaaS founders, and creators.',
   email: 'contact@syntaxcraft.dev',
   domain: 'https://syntaxcraft.dev',
+  github: 'https://github.com/syntaxcraft2026',
+  location: 'Douar Ait Ouaarab, Ghassate, Ouarzazate 45000, Morocco',
+  city: 'Ouarzazate, Morocco',
   availability: 'Available for New Projects',
   responseSla: 'Guaranteed response within 12 hours',
   stats: [
-    { label: 'Automations & Scripts Built', value: '120+' },
+    { label: 'Automations & Pipelines Built', value: '120+' },
     { label: 'Average Project Delivery', value: '48h - 5d' },
     { label: 'Pipeline Uptime Reliability', value: '99.9%' },
     { label: 'Client Code Ownership', value: '100%' }
@@ -28,25 +31,25 @@ export const site = {
       title: 'Python Workflow & Task Automation',
       deck: 'Eliminate repetitive manual tasks with robust, scheduled autonomous background scripts.',
       features: [
-        'Headless browser automation (Playwright & Selenium)',
         'Automated file transformation, reporting, and ETL data pipelines',
         'Cron schedulers and daemonized background worker processes',
-        'Telegram, Discord, and Slack automated event bots'
+        'Asynchronous task queues and event-driven data processors',
+        'Telegram, Discord, and Slack automated operational bots'
       ],
-      tags: ['Python 3.12', 'Playwright', 'AsyncIO', 'Celery', 'Docker']
+      tags: ['Python 3.12', 'AsyncIO', 'FastAPI', 'Celery', 'Docker']
     },
     {
-      id: 'web-scraping',
+      id: 'data-pipelines',
       icon: 'database',
-      title: 'Resilient Web Scraping & Data Pipelines',
-      deck: 'Extract clean, structured data from complex dynamic websites at scale without getting blocked.',
+      title: 'Public Data Extraction & ETL Pipelines',
+      deck: 'Harvest, clean, and structure public market datasets and catalog feeds without data loss.',
       features: [
-        'Smart anti-bot evasion & stealth browser fingerprinting',
-        'Rotating proxy pools, session managers & captcha handling',
+        'Compliant public catalog aggregation & automated market research',
+        'Structured ETL pipelines converting raw web data into validated datasets',
         'Direct export to JSON, CSV, PostgreSQL, or SQLite databases',
-        'Real-time change monitoring and automatic email/webhook alerts'
+        'Scheduled change monitoring, price parity feeds, and automated alerts'
       ],
-      tags: ['Scrapy', 'BeautifulSoup', 'Proxy Rotation', 'FastAPI', 'PostgreSQL']
+      tags: ['Python 3.12', 'Pandas', 'ETL Pipelines', 'FastAPI', 'PostgreSQL']
     },
     {
       id: 'web-engineering',
@@ -54,12 +57,12 @@ export const site = {
       title: 'Custom Modern Web Development',
       deck: 'Blazing-fast, responsive web applications and landing pages engineered to convert.',
       features: [
-        'Full-stack applications using Nuxt, Vue 3, Next.js, and Node.js',
+        'Full-stack applications using Nuxt 3, Vue 3, and Node.js',
         'Mobile-first, conversion-optimized landing pages and design systems',
         'Lighthouse 95+ performance scores and clean semantic SEO structure',
         'Integrated analytics, lead capture forms, and dynamic interactions'
       ],
-      tags: ['Nuxt 3', 'Vue 3', 'TypeScript', 'Node.js', 'Tailwind CSS']
+      tags: ['Nuxt 3', 'Vue 3', 'TypeScript', 'Node.js', 'Vanilla CSS']
     },
     {
       id: 'api-integrations',
@@ -84,7 +87,7 @@ export const site = {
       description: 'Ideal for small-to-medium tasks, single-purpose automation scripts, or specific API integrations.',
       popular: false,
       deliverables: [
-        '1 Custom Python automation script or web scraper',
+        '1 Custom Python automation script or public data pipeline',
         'Complete setup guide and environment documentation',
         'Clean, commented, and typed Python source code',
         '48-Hour Rapid Delivery guarantee',
@@ -104,7 +107,7 @@ export const site = {
         'Full modern web application / landing page OR multi-step automation pipeline',
         'Automated database integration (SQLite / PostgreSQL / CSV)',
         'Robust error handling, structured logging & failure alerts',
-        'Rotating proxy setup or headless browser workflow',
+        'Automated background worker or public data pipeline',
         '3 to 5 Business days delivery',
         '14 Days dedicated revision & support period',
         '100% Full commercial copyright transfer'
@@ -120,7 +123,7 @@ export const site = {
       popular: false,
       deliverables: [
         'Complete full-stack system (Frontend + Backend + Database)',
-        'High-scale scraping engine or multi-threaded background workers',
+        'High-throughput asynchronous data processing & background workers',
         'Custom administrative controls & webhook notification system',
         'Server deployment, Docker containerization & SSL setup',
         '7 to 10 Business days turnaround',
@@ -137,7 +140,7 @@ export const site = {
     },
     {
       question: 'What is the typical turnaround time for a project?',
-      answer: 'Standard automation scripts and scrapers are typically delivered within 48 to 72 hours. Comprehensive web applications and multi-step pipelines are delivered within 3 to 7 business days, depending on project scope.'
+      answer: 'Standard automation scripts and pipelines are typically delivered within 48 to 72 hours. Comprehensive web applications and multi-step architectures are delivered within 3 to 7 business days, depending on project scope.'
     },
     {
       question: 'How do you handle revisions and quality assurance?',

@@ -21,7 +21,7 @@ function handleSubmit() {
 useHead({
   title: 'Contact & Project Consultation — SyntaxCraft Studio',
   meta: [
-    { name: 'description', content: 'Contact SyntaxCraft Studio for custom Python automation, web scraping, and full-stack web engineering inquiries.' }
+    { name: 'description', content: 'Contact SyntaxCraft Studio for custom Python automation, public data extraction, and full-stack web engineering inquiries.' }
   ]
 })
 </script>
@@ -37,10 +37,10 @@ useHead({
         <div class="badge" style="margin-bottom: 16px;">Direct Line</div>
         <h1 style="font-size: 2.8rem; margin-bottom: 16px;">Let’s Build Your Next Engineering Project</h1>
         <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 36px;">
-          Have a specific automation pipeline, web scraper, or web application in mind? Send us your technical requirements and our engineering team will evaluate feasibility and deliver a formal quote.
+          Have a specific automation pipeline, public data processing workflow, or web application in mind? Send us your technical requirements and our engineering team will evaluate feasibility and deliver a formal quote.
         </p>
 
-        <div style="display: grid; gap: 24px; padding: 28px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
+        <div style="display: grid; gap: 20px; padding: 28px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
           <div style="display: flex; gap: 16px; align-items: flex-start;">
             <div style="width: 40px; height: 40px; border-radius: var(--radius-sm); background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.25); display: flex; align-items: center; justify-content: center; color: var(--accent-cyan); flex-shrink: 0;">
               ✉
@@ -48,6 +48,16 @@ useHead({
             <div>
               <div style="font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">Primary Inquiries</div>
               <a :href="'mailto:' + site.email" style="font-size: 1.05rem; font-weight: 700; color: #ffffff; text-decoration: underline;">{{ site.email }}</a>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="width: 40px; height: 40px; border-radius: var(--radius-sm); background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.25); display: flex; align-items: center; justify-content: center; color: #38bdf8; flex-shrink: 0;">
+              📍
+            </div>
+            <div>
+              <div style="font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">Studio Location</div>
+              <div style="font-size: 0.95rem; color: #cbd5e1;">{{ site.location }}</div>
             </div>
           </div>
 
@@ -63,11 +73,11 @@ useHead({
 
           <div style="display: flex; gap: 16px; align-items: flex-start;">
             <div style="width: 40px; height: 40px; border-radius: var(--radius-sm); background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.25); display: flex; align-items: center; justify-content: center; color: var(--accent-indigo); flex-shrink: 0;">
-              🔒
+              💻
             </div>
             <div>
-              <div style="font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">Confidentiality</div>
-              <div style="font-size: 0.95rem; color: #cbd5e1;">All project briefs and credentials covered under strict standard NDA</div>
+              <div style="font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">Verified Developer Profile</div>
+              <a :href="site.github" target="_blank" rel="noopener noreferrer" style="font-size: 0.95rem; color: #38bdf8; text-decoration: underline;">{{ site.github }}</a>
             </div>
           </div>
         </div>
@@ -146,24 +156,16 @@ useHead({
               v-model="formState.details"
               rows="4"
               required
-              placeholder="Describe your automation requirements, target URLs, API endpoints, or web project specifications..."
+              placeholder="Describe your automation requirements, target data endpoints, API schemas, or web project specifications..."
               style="width: 100%; padding: 13px 16px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: #ffffff; font-size: 0.95rem; outline: none; resize: vertical; line-height: 1.6;"
             ></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
-            Submit Project Brief & Request Estimate
+          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+            Submit Project Brief & Request Estimate &rarr;
           </button>
         </form>
       </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-@media (max-width: 900px) {
-  .container > div {
-    grid-template-columns: 1fr !important;
-  }
-}
-</style>

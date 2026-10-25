@@ -1,28 +1,28 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const activeTab = ref('scraper')
+const activeTab = ref('extractor')
 const isRunning = ref(false)
 const terminalOutput = ref<string[]>([
   '✓ Loaded 4 parallel workers on Python 3.12 engine',
-  '✓ Session proxy pool initialized: 50 residential IPs active',
-  '✓ Target ready: https://target-platform.internal/catalog',
+  '✓ Dataset connection established: SSL verified endpoint',
+  '✓ Target ready: https://api.public-market.io/v2/catalog',
   '⚡ Ready to run automated tasks...'
 ])
 
 const tabs = [
-  { id: 'scraper', name: 'scraper_engine.py' },
+  { id: 'extractor', name: 'data_extractor.py' },
   { id: 'bot', name: 'webhook_worker.py' },
   { id: 'pipeline', name: 'data_pipeline.py' },
 ]
 
 const codeSnippets: Record<string, string[]> = {
-  scraper: [
-    'import asyncio, httpx, playwright.async_api',
+  extractor: [
+    'import asyncio, httpx',
     '',
-    'async def extract_catalog_stream(proxy_pool):',
-    '    async with httpx.AsyncClient(proxies=proxy_pool) as client:',
-    '        response = await client.get("https://api.stream.io/v2/items")',
+    'async def sync_public_catalog(api_endpoint):',
+    '    async with httpx.AsyncClient(timeout=10.0) as client:',
+    '        response = await client.get(api_endpoint)',
     '        items = response.json().get("results", [])',
     '        return [clean_entity(item) for item in items]',
     '',
@@ -64,9 +64,9 @@ function runScript() {
   }, 400)
   
   setTimeout(() => {
-    if (activeTab.value === 'scraper') {
+    if (activeTab.value === 'extractor') {
       terminalOutput.value.push('→ Connected 10 async worker threads...')
-      terminalOutput.value.push('→ Harvested 1,420 clean records [0 errors]')
+      terminalOutput.value.push('→ Processed 1,420 clean records [0 errors]')
       terminalOutput.value.push('✓ Status 200 OK — Data persisted to SQLite warehouse!')
     } else if (activeTab.value === 'bot') {
       terminalOutput.value.push('→ Webhook payload received & signature verified.')
@@ -101,39 +101,43 @@ function runScript() {
           {{ tab.name }}
         </button>
       </div>
-      <div>
-        <button
-          class="btn btn-sm"
-          style="background: rgba(6, 182, 212, 0.15); color: #38bdf8; border: 1px solid rgba(6, 182, 212, 0.3); font-family: var(--font-mono); font-size: 0.72rem; padding: 4px 10px;"
-          :disabled="isRunning"
-          @click="runScript"
-        >
-          {{ isRunning ? '⚡ Running...' : '▶ Run Code' }}
-        </button>
+      <button class="terminal-run-btn" :disabled="isRunning" @click="runScript">
+        <span v-if="isRunning">Executing...</span>
+        <span v-else>▶ Run Code</span>
+      </button>
+    </div>
+
+    <div class="terminal-code">
+      <div
+        v-for="(line, idx) in codeSnippets[activeTab]"
+        :key="idx"
+        class="code-line"
+      >
+        <span class="line-num">{{ idx + 1 }}</span>
+        <span class="line-content" v-html="formatCode(line)"></span>
       </div>
     </div>
 
-    <div class="terminal-body">
-      <div v-for="(line, index) in codeSnippets[activeTab]" :key="index" class="terminal-code-line">
-        <span class="line-no">{{ index + 1 }}</span>
-        <span>
-          <template v-if="line.startsWith('import ') || line.startsWith('from ') || line.startsWith('def ') || line.startsWith('async ')">
-            <span class="code-keyword">{{ line.split(' ')[0] }}</span> {{ line.substring(line.indexOf(' ') + 1) }}
-          </template>
-          <template v-else-if="line.startsWith('#')">
-            <span class="code-comment">{{ line }}</span>
-          </template>
-          <template v-else>
-            {{ line }}
-          </template>
-        </span>
-      </div>
-
-      <div class="terminal-output">
-        <div v-for="(out, i) in terminalOutput" :key="i" style="margin-bottom: 3px;">
-          {{ out }}
-        </div>
+    <div class="terminal-output">
+      <div
+        v-for="(out, idx) in terminalOutput"
+        :key="idx"
+        class="output-line"
+        :class="{ success: out.includes('✓'), info: out.includes('→'), warn: out.includes('⚡') }"
+      >
+        {{ out }}
       </div>
     </div>
   </div>
 </template>
+
+<script lang="ts">
+function formatCode(code: string): string {
+  if (!code) return '&nbsp;'
+  return code
+    .replace(/(import|from|async|def|return|await|with|as)/g, '<span style="color: #f43f5e; font-weight: 600;">$1</span>')
+    .replace(/(FastAPI|Request|AsyncClient)/g, '<span style="color: #38bdf8;">$1</span>')
+    .replace(/(".*?")/g, '<span style="color: #10b981;">$1</span>')
+    .replace(/(#.*$)/g, '<span style="color: #64748b; font-style: italic;">$1</span>')
+}
+</script>

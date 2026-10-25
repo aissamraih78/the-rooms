@@ -6,7 +6,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Engineering custom web applications, workflow automations, and resilient data scraping pipelines for growing digital businesses.'
+      content: 'Engineering custom web applications, workflow automations, and robust public data pipelines for growing digital businesses.'
     }
   ]
 })
@@ -29,7 +29,7 @@ useHead({
             </h1>
 
             <p class="hero-subtitle">
-              From bespoke full-stack applications and high-converting landing pages to intelligent bots, scraping pipelines, and 24/7 background workflows. Built for stability, engineered for speed.
+              From bespoke full-stack applications and high-converting landing pages to intelligent bots, public data pipelines, and 24/7 background workflows. Built for stability, engineered for speed.
             </p>
 
             <div class="hero-actions">

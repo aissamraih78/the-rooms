@@ -25,11 +25,11 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5' },
         {
           name: 'description',
-          content: 'Engineering custom web applications, workflow automations, and resilient data scraping pipelines for growing digital businesses and ambitious creators.',
+          content: 'Engineering custom web applications, workflow automations, and robust public data pipelines for growing digital businesses and ambitious creators.',
         },
         { name: 'theme-color', content: '#070b12' },
         { property: 'og:title', content: 'SyntaxCraft — High-Performance Web & Python Automation Studio' },
-        { property: 'og:description', content: 'Engineering custom web applications, workflow automations, and resilient data scraping pipelines.' },
+        { property: 'og:description', content: 'Engineering custom web applications, workflow automations, and robust public data pipelines.' },
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://syntaxcraft.dev' },
       ],
