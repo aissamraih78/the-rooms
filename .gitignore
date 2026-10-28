@@ -6,3 +6,5 @@ dist
 .env.*
 *.tsbuildinfo
 .DS_Store
+deploy_to_hostinger.py
+*.tar.gz
