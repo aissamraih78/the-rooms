@@ -21,29 +21,29 @@ useHead({
           <div>
             <div class="badge">
               <span class="badge-dot"></span>
-              Autonomous Python Systems & Modern Web Studio
+              Pre-Engineered Python Codebases & Modern Web Suites
             </div>
 
             <h1 class="hero-title">
-              We Craft Resilient <span class="gradient-cyan-indigo">Web Applications</span> & High-Speed <span class="gradient-text">Python Automation</span>
+              Production-Grade <span class="gradient-cyan-indigo">Web Codebases</span> & Autonomous <span class="gradient-text">Python Automation</span>
             </h1>
 
             <p class="hero-subtitle">
-              From bespoke full-stack applications and high-converting landing pages to intelligent bots, public SEO analytics, and 24/7 background workflows. Built for stability, engineered for speed.
+              Commercial-grade, battle-tested software packages, intelligent scrapers, public SEO analytics pipelines, and 24/7 background worker daemons. Clean source code, perpetual commercial license, and instant digital delivery.
             </p>
 
             <div class="hero-actions">
               <NuxtLink to="/#pricing" class="btn btn-primary">
-                Explore Packages & Pricing
+                Explore Software Packages
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </NuxtLink>
-              <NuxtLink to="/contact" class="btn btn-secondary">
-                Request Custom Consultation
-              </NuxtLink>
+              <a href="#showcase" class="btn btn-secondary">
+                View Interactive Code Demo
+              </a>
             </div>
           </div>
 
-          <div>
+          <div id="showcase">
             <TerminalShowcase />
           </div>
         </div>
@@ -62,10 +62,10 @@ useHead({
     <section id="services" class="section-shell">
       <div class="container">
         <div class="section-head">
-          <div class="badge">Core Competencies</div>
-          <h2>Engineered Solutions for Modern Digital Operations</h2>
+          <div class="badge">Software Packages</div>
+          <h2>Production-Grade Codebases for Modern Digital Operations</h2>
           <p>
-            Whether you need to extract critical market intelligence, automate complex multi-platform processes, or deploy high-converting web applications, we build production-grade software you can rely on.
+            Whether you need to extract critical public market intelligence, automate complex multi-platform processes, or deploy high-converting web applications, we license production-grade software you can deploy immediately.
           </p>
         </div>
 
@@ -100,10 +100,10 @@ useHead({
     <section id="pricing" class="section-shell" style="background: rgba(12, 18, 30, 0.5); border-block: 1px solid var(--border-subtle);">
       <div class="container">
         <div class="section-head">
-          <div class="badge">Transparent Investment</div>
-          <h2>Flat-Fee Pricing with Zero Hidden Costs</h2>
+          <div class="badge">Commercial Software Licenses</div>
+          <h2>Flat-Fee Pricing with Instant Digital Delivery</h2>
           <p>
-            Choose the package that aligns with your technical requirements. Every project includes full commented source code, dedicated post-delivery support, and 100% intellectual property transfer.
+            Choose the software codebase package that fits your architecture. Every package includes full commented source code, private GitHub repository access, Docker environment configurations, and a 100% perpetual commercial license.
           </p>
         </div>
 
@@ -141,6 +141,9 @@ useHead({
             >
               {{ pkg.cta }}
             </NuxtLink>
+            <div style="font-size: 0.75rem; text-align: center; color: var(--text-muted); margin-top: 10px;">
+              🔒 Processed via Lemon Squeezy • Instant Access
+            </div>
           </div>
         </div>
       </div>
@@ -150,36 +153,36 @@ useHead({
     <section id="process" class="section-shell">
       <div class="container">
         <div class="section-head">
-          <div class="badge">Delivery Lifecycle</div>
-          <h2>Predictable, Transparent Engineering Process</h2>
+          <div class="badge">Fulfillment Model</div>
+          <h2>How Digital Delivery & Onboarding Works</h2>
           <p>
-            We adhere to disciplined software development practices to ensure your scripts and applications deploy on schedule without regressions.
+            Instant, automated, and secure fulfillment for developer codebases and automation architectures.
           </p>
         </div>
 
         <div class="process-steps">
           <div class="step-card">
             <div class="step-num">STAGE 01</div>
-            <h3>Architecture & Scope</h3>
-            <p>We review your exact input datasets, target platforms, or design specifications and establish concrete deliverable milestones.</p>
+            <h3>Package Selection</h3>
+            <p>Select the automation package, public analytics engine, or Nuxt 3 web suite that matches your project requirements.</p>
           </div>
 
           <div class="step-card">
             <div class="step-num">STAGE 02</div>
-            <h3>Agile Engineering</h3>
-            <p>We write clean, typed, modular code with integrated error handling, anti-block proxies, or responsive CSS design tokens.</p>
+            <h3>Lemon Squeezy Checkout</h3>
+            <p>Complete your one-time digital purchase via our secure Merchant of Record with credit/debit card, Apple Pay, or PayPal.</p>
           </div>
 
           <div class="step-card">
             <div class="step-num">STAGE 03</div>
-            <h3>Stress Testing</h3>
-            <p>Every script and component is validated against real network constraints, edge-case payloads, and concurrency limits.</p>
+            <h3>Instant Repository Delivery</h3>
+            <p>Receive immediate invitation to the private GitHub repository, downloadable ZIP package, and full environment setup guide.</p>
           </div>
 
           <div class="step-card">
             <div class="step-num">STAGE 04</div>
-            <h3>Handover & Support</h3>
-            <p>We deliver the complete private GitHub repository, setup documentation, and stay on standby during your revision window.</p>
+            <h3>Warranty & Tech Support</h3>
+            <p>Deploy with complete confidence backed by our dedicated support window, setup assistance, and continuous defect warranty.</p>
           </div>
         </div>
       </div>
@@ -212,16 +215,16 @@ useHead({
     <section class="section-shell">
       <div class="container">
         <div class="cta-banner">
-          <h2>Ready to Automate Your Operations or Build Your Next Web Project?</h2>
+          <h2>Ready to Deploy Production-Grade Automation & Web Codebases?</h2>
           <p>
-            Get in touch with our team today. We typically evaluate technical specifications and provide quotes within 12 hours.
+            Choose your software package for instant digital delivery or reach out to our engineering support desk for technical onboarding questions.
           </p>
           <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-            <NuxtLink to="/contact" class="btn btn-primary">
-              Contact SyntaxCraft Studio
+            <NuxtLink to="/#pricing" class="btn btn-primary">
+              Explore Software Packages
             </NuxtLink>
-            <NuxtLink to="/#pricing" class="btn btn-secondary">
-              View Pricing Packages
+            <NuxtLink to="/contact" class="btn btn-secondary">
+              Product Support & Pre-Purchase Questions
             </NuxtLink>
           </div>
         </div>

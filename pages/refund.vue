@@ -2,9 +2,9 @@
 import { site } from '~/data/site'
 
 useHead({
-  title: 'Refund & Revision Policy — SyntaxCraft Studio',
+  title: 'Refund & Warranty Policy — SyntaxCraft Studio',
   meta: [
-    { name: 'description', content: 'Our 100% satisfaction guarantee, revision windows, and refund policy for bespoke software engineering and Python automation.' }
+    { name: 'description', content: 'Our satisfaction guarantee, technical defect warranty, and refund policy for digital software packages and automation codebases.' }
   ]
 })
 </script>
@@ -16,54 +16,59 @@ useHead({
     </NuxtLink>
 
     <div class="badge" style="margin-bottom: 16px;">Quality Guarantee</div>
-    <h1 style="font-size: 2.8rem; margin-bottom: 12px;">Refund & Revision Policy</h1>
+    <h1 style="font-size: 2.8rem; margin-bottom: 12px;">Refund & Warranty Policy</h1>
     <p style="color: var(--text-muted); margin-bottom: 40px;">Effective Date: October 25, 2026</p>
 
     <div style="display: grid; gap: 32px; font-size: 0.96rem; line-height: 1.75; color: #cbd5e1;">
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">1. Engineering Satisfaction Commitment</h2>
+        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">1. Digital Software Quality Commitment</h2>
         <p>
-          At SyntaxCraft Studio, our core priority is delivering functional, robust, and clean code that meets the agreed technical criteria. Because custom software engineering involves tailored manual labor and intellectual property creation, our refund and revision model is designed to protect both the client's investment and the engineering lifecycle.
+          At SyntaxCraft Studio, our core priority is delivering production-ready, clean, and fully functional digital codebases, automation packages, and web starter architectures. Because our products are delivered electronically as downloadable digital source code, repository access, and technical documentation, our refund and warranty policy is structured to guarantee technical reliability while complying with global digital goods standards.
         </p>
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">2. Complimentary Revision Windows</h2>
+        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">2. Complimentary Technical Support & Defect Warranty</h2>
         <p>
-          Every package includes an active post-delivery testing and revision period:
+          Every software package includes dedicated technical onboarding and defect warranty support from the date of purchase:
         </p>
         <ul style="margin: 12px 0 0 20px; display: grid; gap: 6px;">
-          <li><strong>Starter Script ($149):</strong> 7 days of complimentary bug-fix support and environment adjustments.</li>
-          <li><strong>Pro Automation & Web ($449):</strong> 14 days of dedicated revision, scope alignment, and logic tuning.</li>
-          <li><strong>Enterprise Architecture ($1,199):</strong> 30 days of priority maintenance, monitoring, and patch releases.</li>
+          <li><strong>Script Starter Package ($149):</strong> 7 days of complimentary setup assistance, environment adjustments, and bug fixes.</li>
+          <li><strong>Pro Automation & Web Suite ($449):</strong> 14 days of dedicated technical support, dependency alignment, and defect resolution.</li>
+          <li><strong>Enterprise Architecture Package ($1,199):</strong> 30 days of priority technical onboarding, monitoring guidance, and patch releases.</li>
         </ul>
         <p style="margin-top: 12px;">
-          During this window, any defects, deviations from the agreed brief, or operational errors in the delivered codebase will be diagnosed and fixed at no extra charge.
+          During this active window, any bugs, execution defects, or deviations from the stated product documentation will be diagnosed, resolved, or updated at zero extra charge.
         </p>
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">3. Cancellation Before Work Begins</h2>
+        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">3. Refund Eligibility for Digital Goods</h2>
         <p>
-          If you order a service package and request cancellation before our engineering team has commenced architecture or code writing (within 24 hours of ordering), you are entitled to a full 100% refund processed via Lemon Squeezy back to your original payment method.
+          We stand firmly behind the technical quality of our codebase packages. You are eligible for a 100% refund processed through our Merchant of Record partner, Lemon Squeezy, under the following circumstances:
+        </p>
+        <ul style="margin: 12px 0 0 20px; display: grid; gap: 8px;">
+          <li><strong>Unresolvable Technical Defect:</strong> If the delivered codebase exhibits a critical functional error or incompatibility with the documented operating environment, and our engineering team cannot resolve it within 3 business days of notification.</li>
+          <li><strong>Duplicate Purchase:</strong> If you accidentally place a duplicate order for the same digital software package.</li>
+          <li><strong>Non-Delivery:</strong> In the rare event that electronic access or repository invitation is not provided within 24 hours of successful payment confirmation.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">4. Processing of Refunds via Lemon Squeezy</h2>
+        <p>
+          Approved refunds are submitted directly through the <strong>Lemon Squeezy</strong> merchant portal and credited back to your original payment method (Credit/Debit Card, Apple Pay, Google Pay, or PayPal). Standard bank processing times typically range between 3 to 7 business days.
         </p>
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">4. Inability to Fulfill Scope</h2>
+        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">5. How to Initiate a Support Request or Refund</h2>
         <p>
-          In the rare circumstance that an external target platform renders an automation or web project technically impossible (e.g. unbypassable hardware restrictions or sudden API decommissioning), and no viable workaround can be engineered, we will issue a full or prorated refund promptly.
-        </p>
-      </section>
-
-      <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">5. How to Request Support or Revisions</h2>
-        <p>
-          To initiate a revision request or discuss your project status, email our engineering lead at:
+          To request technical assistance, report a codebase bug, or inquire about a refund, simply email our support desk:
           <br>
           <strong style="color: var(--accent-cyan);">Email:</strong> {{ site.email }}
           <br>
-          Please include your order identifier or project name for immediate expedited assistance.
+          Please include your Lemon Squeezy Order ID and license details for immediate assistance.
         </p>
       </section>
     </div>

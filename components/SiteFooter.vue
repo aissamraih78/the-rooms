@@ -23,23 +23,23 @@ const currentYear = new Date().getFullYear()
         </div>
 
         <div class="footer-col">
-          <h4>Engineering Services</h4>
+          <h4>Software & Codebases</h4>
           <ul class="footer-links">
-            <li><NuxtLink to="/#services">Python Task Automation</NuxtLink></li>
-            <li><NuxtLink to="/#services">Public SEO & Market Analytics</NuxtLink></li>
-            <li><NuxtLink to="/#services">Full-Stack Web Engineering</NuxtLink></li>
-            <li><NuxtLink to="/#services">API & Webhook Integrations</NuxtLink></li>
-            <li><NuxtLink to="/#pricing">Pricing & Custom Packages</NuxtLink></li>
+            <li><NuxtLink to="/#services">Python Automation Codebases</NuxtLink></li>
+            <li><NuxtLink to="/#services">Public SEO Analytics Pipelines</NuxtLink></li>
+            <li><NuxtLink to="/#services">Nuxt 3 Web Application Suites</NuxtLink></li>
+            <li><NuxtLink to="/#services">Payment & Webhook Modules</NuxtLink></li>
+            <li><NuxtLink to="/#pricing">Packages & Pricing</NuxtLink></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Legal & Support</h4>
           <ul class="footer-links">
-            <li><NuxtLink to="/terms">Terms of Service</NuxtLink></li>
+            <li><NuxtLink to="/terms">Terms of Service & Licensing</NuxtLink></li>
             <li><NuxtLink to="/privacy">Privacy Policy</NuxtLink></li>
-            <li><NuxtLink to="/refund">Refund & Revision Policy</NuxtLink></li>
-            <li><NuxtLink to="/contact">Contact Support ({{ site.email }})</NuxtLink></li>
+            <li><NuxtLink to="/refund">Refund & Warranty Policy</NuxtLink></li>
+            <li><NuxtLink to="/contact">Product Support Desk</NuxtLink></li>
             <li>
               <a :href="site.github" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px;">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">

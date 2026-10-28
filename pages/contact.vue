@@ -9,8 +9,8 @@ const formSubmitted = ref(false)
 const formState = ref({
   name: '',
   email: '',
-  serviceType: selectedPkg === 'starter' ? 'Python Automation Script' : selectedPkg === 'enterprise' ? 'Enterprise Custom Architecture' : 'Pro Web & Automation Suite',
-  budget: selectedPkg === 'starter' ? '$149' : selectedPkg === 'enterprise' ? '$1,199+' : '$449',
+  packageChoice: selectedPkg === 'starter' ? 'Script Starter Package ($149)' : selectedPkg === 'enterprise' ? 'Enterprise Architecture Package ($1,199)' : 'Pro Automation & Web Suite ($449)',
+  inquiryType: 'Pre-Purchase Technical Question',
   details: ''
 })
 
@@ -19,9 +19,9 @@ function handleSubmit() {
 }
 
 useHead({
-  title: 'Contact & Project Consultation — SyntaxCraft Studio',
+  title: 'Product Support & Technical Inquiries — SyntaxCraft Studio',
   meta: [
-    { name: 'description', content: 'Contact SyntaxCraft Studio for custom Python automation, public data extraction, and full-stack web engineering inquiries.' }
+    { name: 'description', content: 'Contact SyntaxCraft Studio for questions regarding our software packages, commercial licensing, and technical setup.' }
   ]
 })
 </script>
@@ -34,10 +34,10 @@ useHead({
 
     <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 60px; align-items: start;">
       <div>
-        <div class="badge" style="margin-bottom: 16px;">Direct Line</div>
-        <h1 style="font-size: 2.8rem; margin-bottom: 16px;">Let’s Build Your Next Engineering Project</h1>
+        <div class="badge" style="margin-bottom: 16px;">Direct Engineering Desk</div>
+        <h1 style="font-size: 2.8rem; margin-bottom: 16px;">Product Support & Technical Inquiries</h1>
         <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 36px;">
-          Have a specific Python automation script, public SEO analytics pipeline, or modern web application in mind? Send us your technical requirements and our engineering team will evaluate feasibility and deliver a formal quote.
+          Have questions regarding our Python automation packages, Nuxt 3 web starter architectures, or commercial software licensing? Our engineering team is on standby to assist with technical verification and setup guidance.
         </p>
 
         <div style="display: grid; gap: 20px; padding: 28px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
@@ -46,7 +46,7 @@ useHead({
               ✉
             </div>
             <div>
-              <div style="font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">Primary Inquiries</div>
+              <div style="font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">Direct Support Email</div>
               <a :href="'mailto:' + site.email" style="font-size: 1.05rem; font-weight: 700; color: #ffffff; text-decoration: underline;">{{ site.email }}</a>
             </div>
           </div>
@@ -91,7 +91,7 @@ useHead({
           </div>
           <h2 style="font-size: 1.6rem; margin-bottom: 12px;">Inquiry Dispatched Successfully!</h2>
           <p style="color: var(--text-secondary); max-width: 420px; margin: 0 auto 24px; line-height: 1.6;">
-            Thank you, <strong>{{ formState.name }}</strong>. Our lead engineer has received your project briefing and will get back to you at <strong>{{ formState.email }}</strong> within 12 hours.
+            Thank you, <strong>{{ formState.name }}</strong>. Our lead engineer has received your inquiry and will respond to <strong>{{ formState.email }}</strong> within 12 hours.
           </p>
           <NuxtLink to="/" class="btn btn-secondary btn-sm">
             Return to Homepage
@@ -99,8 +99,8 @@ useHead({
         </div>
 
         <form v-else @submit.prevent="handleSubmit" style="display: grid; gap: 20px;">
-          <h2 style="font-size: 1.5rem; margin-bottom: 6px;">Project Brief & Estimate Request</h2>
-          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">Fill out the details below for an expedited review.</p>
+          <h2 style="font-size: 1.5rem; margin-bottom: 6px;">Technical Inquiry & Support Request</h2>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">Fill out the details below for an expedited response from our technical team.</p>
 
           <div>
             <label style="display: block; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; color: var(--text-secondary);">Your Name</label>
@@ -126,43 +126,45 @@ useHead({
 
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
             <div>
-              <label style="display: block; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; color: var(--text-secondary);">Selected Package</label>
+              <label style="display: block; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; color: var(--text-secondary);">Package of Interest</label>
               <select
-                v-model="formState.serviceType"
+                v-model="formState.packageChoice"
                 style="width: 100%; padding: 13px 16px; background: #0c121e; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: #ffffff; font-size: 0.88rem; outline: none;"
               >
-                <option>Starter Automation Script ($149)</option>
-                <option>Pro Web & Automation Suite ($449)</option>
-                <option>Enterprise Custom Architecture ($1,199+)</option>
-                <option>Custom Retainer / Other Scope</option>
+                <option>Script Starter Package ($149)</option>
+                <option>Pro Automation & Web Suite ($449)</option>
+                <option>Enterprise Architecture Package ($1,199)</option>
+                <option>General Licensing / Setup Question</option>
               </select>
             </div>
 
             <div>
-              <label style="display: block; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; color: var(--text-secondary);">Target Delivery</label>
+              <label style="display: block; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; color: var(--text-secondary);">Inquiry Type</label>
               <select
+                v-model="formState.inquiryType"
                 style="width: 100%; padding: 13px 16px; background: #0c121e; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: #ffffff; font-size: 0.88rem; outline: none;"
               >
-                <option>Urgent (Within 48-72 hours)</option>
-                <option>Standard (Within 1-2 weeks)</option>
-                <option>Flexible Timeline</option>
+                <option>Pre-Purchase Technical Question</option>
+                <option>License & Commercial Rights</option>
+                <option>Technical Setup & Compatibility</option>
+                <option>Bug Fix & Warranty Support</option>
               </select>
             </div>
           </div>
 
           <div>
-            <label style="display: block; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; color: var(--text-secondary);">Project Requirements & Details</label>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; color: var(--text-secondary);">Inquiry Details</label>
             <textarea
               v-model="formState.details"
               rows="4"
               required
-              placeholder="Describe your automation requirements, target data endpoints, API schemas, or web project specifications..."
+              placeholder="Describe your technical question, deployment environment, or licensing inquiry..."
               style="width: 100%; padding: 13px 16px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: #ffffff; font-size: 0.95rem; outline: none; resize: vertical; line-height: 1.6;"
             ></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-            Submit Project Brief & Request Estimate &rarr;
+            Submit Technical Inquiry &rarr;
           </button>
         </form>
       </div>
