@@ -134,10 +134,27 @@ function runScript() {
 <script lang="ts">
 function formatCode(code: string): string {
   if (!code) return '&nbsp;'
-  return code
-    .replace(/(import|from|async|def|return|await|with|as)/g, '<span style="color: #f43f5e; font-weight: 600;">$1</span>')
-    .replace(/(FastAPI|Request|AsyncClient)/g, '<span style="color: #38bdf8;">$1</span>')
-    .replace(/(".*?")/g, '<span style="color: #10b981;">$1</span>')
-    .replace(/(#.*$)/g, '<span style="color: #64748b; font-style: italic;">$1</span>')
+  const escaped = code
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+
+  const tokens: string[] = []
+  const saveToken = (html: string) => {
+    tokens.push(html)
+    return `___TOKEN_${tokens.length - 1}___`
+  }
+
+  // 1. Highlight comments first
+  let res = escaped.replace(/(#.*$)/g, (m) => saveToken(`<span style="color: #64748b; font-style: italic;">${m}</span>`))
+  // 2. Highlight string literals
+  res = res.replace(/(".*?")/g, (m) => saveToken(`<span style="color: #10b981;">${m}</span>`))
+  // 3. Highlight keywords
+  res = res.replace(/\b(import|from|async|def|return|await|with|as)\b/g, '<span style="color: #f43f5e; font-weight: 600;">$1</span>')
+  // 4. Highlight classes and functions
+  res = res.replace(/\b(FastAPI|Request|AsyncClient|polars|pl|sqlite3|create_engine)\b/g, '<span style="color: #38bdf8;">$1</span>')
+
+  // Restore tokens
+  return res.replace(/___TOKEN_(\d+)___/g, (_, idx) => tokens[parseInt(idx, 10)])
 }
 </script>

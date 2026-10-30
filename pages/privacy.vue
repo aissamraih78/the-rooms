@@ -19,9 +19,9 @@ useHead({
     <h1 style="font-size: 2.8rem; margin-bottom: 12px;">Privacy Policy</h1>
     <p style="color: var(--text-muted); margin-bottom: 40px;">Effective Date: October 25, 2026</p>
 
-    <div style="display: grid; gap: 32px; font-size: 0.96rem; line-height: 1.75; color: #cbd5e1;">
+    <div style="display: grid; gap: 32px; font-size: 0.96rem; line-height: 1.75; color: var(--text-secondary);">
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">1. Information We Collect</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">1. Information We Collect</h2>
         <p>
           We only collect data that is strictly required to communicate with you and complete your bespoke software development projects:
         </p>
@@ -33,35 +33,35 @@ useHead({
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">2. Zero Personal Data Harvesting Guarantee</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">2. Zero Personal Data Harvesting Guarantee</h2>
         <p>
           SyntaxCraft Studio operates strictly as an engineering and software architecture studio. We do not harvest, store, scrape, sell, or broker consumer personal data (PII), email lists, or private user credentials. Any automated analytics or monitoring tools engineered for clients operate exclusively on public, authorized APIs and non-confidential metrics (such as public search rankings, Google Trends, and Core Web Vitals).
         </p>
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">3. Payment Information Security</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">3. Payment Information Security</h2>
         <p>
           SyntaxCraft Studio does not store, process, or transmit your credit card or sensitive financial information on our servers. All transaction billing is managed by <strong>Lemon Squeezy</strong> acting as Merchant of Record under PCI-DSS Level 1 compliance.
         </p>
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">4. Confidentiality & Non-Disclosure</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">4. Confidentiality & Non-Disclosure</h2>
         <p>
           We treat all proprietary algorithms, client business logic, database credentials, and business concepts shared with us under strict confidentiality. We do not resell, open-source, or distribute your custom codebase without your explicit written authorization.
         </p>
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">5. Cookies & Tracking</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">5. Cookies & Tracking</h2>
         <p>
           Our website uses minimal, privacy-focused technical cookies essential for session persistence and security. We do not use intrusive cross-site tracking beacons or sell marketing profiles to third parties.
         </p>
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">6. Contacting Data Protection</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">6. Contacting Data Protection</h2>
         <p>
           If you have questions regarding data retention, or would like to request deletion of your project records, please contact our privacy desk at:
           <br>

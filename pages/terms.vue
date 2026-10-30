@@ -19,16 +19,16 @@ useHead({
     <h1 style="font-size: 2.8rem; margin-bottom: 12px;">Terms of Service & Software License</h1>
     <p style="color: var(--text-muted); margin-bottom: 40px;">Last updated: October 25, 2026</p>
 
-    <div style="display: grid; gap: 32px; font-size: 0.96rem; line-height: 1.75; color: #cbd5e1;">
+    <div style="display: grid; gap: 32px; font-size: 0.96rem; line-height: 1.75; color: var(--text-secondary);">
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">1. Overview & Product Scope</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">1. Overview & Product Scope</h2>
         <p>
           SyntaxCraft Studio ("SyntaxCraft", "we", "us", or "our") develops and licenses pre-engineered digital software packages, production-grade Python automation scripts, Nuxt 3 web application codebases, and developer tooling modules. By purchasing a software license, accessing our private repositories, or downloading our codebase packages, you ("Licensee", "Customer", or "You") agree to be bound by these Terms of Service.
         </p>
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">2. Commercial License Grant & Code Ownership</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">2. Commercial License Grant & Code Ownership</h2>
         <p>
           Upon successful payment processing via our Merchant of Record partner, Lemon Squeezy, SyntaxCraft grants you a perpetual, worldwide, non-exclusive, irrevocable commercial license to:
         </p>
@@ -43,7 +43,7 @@ useHead({
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">3. Instant Electronic Delivery & Repository Access</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">3. Instant Electronic Delivery & Repository Access</h2>
         <p>
           All digital products and codebases are delivered electronically immediately following checkout confirmation:
         </p>
@@ -55,7 +55,7 @@ useHead({
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">4. Public Data Compliance & Ethical Software Standards</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">4. Public Data Compliance & Ethical Software Standards</h2>
         <p>
           SyntaxCraft Studio software packages are engineered in strict compliance with international digital ethics, robots.txt directives, and public API provider terms. Where automation modules interact with online data, their scope is strictly confined to non-confidential, publicly accessible metrics:
         </p>
@@ -70,21 +70,21 @@ useHead({
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">5. Payment Processing via Merchant of Record</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">5. Payment Processing via Merchant of Record</h2>
         <p>
           All electronic billing, checkout processes, and transaction handling are facilitated securely through our authorized Merchant of Record partner, <strong>Lemon Squeezy</strong>. Lemon Squeezy handles global sales taxes, VAT, and PCI-compliant payment gateways. Major credit/debit cards, Apple Pay, Google Pay, and PayPal are accepted. Official VAT/GST receipts are issued automatically.
         </p>
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">6. Technical Support & Warranty</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">6. Technical Support & Warranty</h2>
         <p>
           Each package includes a dedicated technical defect warranty and support window (7 to 30 days depending on the tier). While we guarantee the software operates as documented at the time of delivery, SyntaxCraft Studio is not liable for future breaking changes introduced by third-party external APIs, platform deprecations, or unauthorized end-user modifications.
         </p>
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">7. Studio Entity & Contact</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">7. Studio Entity & Contact</h2>
         <p>
           For licensing inquiries, enterprise custom licenses, or support, please contact our team directly at:
           <br>

@@ -97,7 +97,7 @@ useHead({
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="section-shell" style="background: rgba(12, 18, 30, 0.5); border-block: 1px solid var(--border-subtle);">
+    <section id="pricing" class="section-shell" style="background: #f8fafc; border-block: 1px solid var(--border-subtle);">
       <div class="container">
         <div class="section-head">
           <div class="badge">Commercial Software Licenses</div>

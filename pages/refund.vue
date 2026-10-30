@@ -19,16 +19,16 @@ useHead({
     <h1 style="font-size: 2.8rem; margin-bottom: 12px;">Refund & Warranty Policy</h1>
     <p style="color: var(--text-muted); margin-bottom: 40px;">Effective Date: October 25, 2026</p>
 
-    <div style="display: grid; gap: 32px; font-size: 0.96rem; line-height: 1.75; color: #cbd5e1;">
+    <div style="display: grid; gap: 32px; font-size: 0.96rem; line-height: 1.75; color: var(--text-secondary);">
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">1. Digital Software Quality Commitment</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">1. Digital Software Quality Commitment</h2>
         <p>
           At SyntaxCraft Studio, our core priority is delivering production-ready, clean, and fully functional digital codebases, automation packages, and web starter architectures. Because our products are delivered electronically as downloadable digital source code, repository access, and technical documentation, our refund and warranty policy is structured to guarantee technical reliability while complying with global digital goods standards.
         </p>
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">2. Complimentary Technical Support & Defect Warranty</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">2. Complimentary Technical Support & Defect Warranty</h2>
         <p>
           Every software package includes dedicated technical onboarding and defect warranty support from the date of purchase:
         </p>
@@ -43,7 +43,7 @@ useHead({
       </section>
 
       <section>
-        <h2 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 12px;">3. Refund Eligibility for Digital Goods</h2>
+        <h2 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">3. Refund Eligibility for Digital Goods</h2>
         <p>
           We stand firmly behind the technical quality of our codebase packages. You are eligible for a 100% refund processed through our Merchant of Record partner, Lemon Squeezy, under the following circumstances:
         </p>
