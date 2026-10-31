@@ -5,7 +5,7 @@ export const site = {
   description: 'We develop and license specialized, 100% compliant SEO automation scripts, product title generators, metadata synthesizers, and webmaster administration utilities.',
   email: 'contact@syntaxcraft.dev',
   domain: 'https://syntaxcraft.dev',
-  github: 'https://github.com/syntaxcraft2026',
+  github: 'https://github.com/syntaxcraft2026/syntaxcraft-seo-tools',
   location: 'Douar Ait Ouaarab, Ghassate, Ouarzazate 45000, Morocco',
   city: 'Ouarzazate, Morocco',
   availability: 'Available for Instant Digital Delivery',
