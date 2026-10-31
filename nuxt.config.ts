@@ -21,16 +21,16 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
-      title: 'SyntaxCraft — High-Performance Web & Python Automation Studio',
+      title: 'SyntaxCraft — Production-Grade SEO Automation Tools & Webmaster Utilities',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5' },
         {
           name: 'description',
-          content: 'Engineering custom web applications, workflow automations, and robust public data pipelines for growing digital businesses and ambitious creators.',
+          content: 'Specialized 100% compliant SEO automation scripts, product title generators, metadata synthesizers, and webmaster administration utilities.',
         },
         { name: 'theme-color', content: '#f8fafc' },
-        { property: 'og:title', content: 'SyntaxCraft — High-Performance Web & Python Automation Studio' },
-        { property: 'og:description', content: 'Engineering custom web applications, workflow automations, and robust public data pipelines.' },
+        { property: 'og:title', content: 'SyntaxCraft — Production-Grade SEO Automation Tools & Webmaster Utilities' },
+        { property: 'og:description', content: 'Specialized 100% compliant SEO automation scripts, product title generators, metadata synthesizers, and webmaster utilities.' },
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://syntaxcraft.dev' },
       ],
