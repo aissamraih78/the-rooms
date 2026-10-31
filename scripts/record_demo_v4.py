@@ -24,12 +24,21 @@ async def record_master_seo_demo():
         )
         page = await context.new_page()
         
-        # Load local platform
-        print("1. Loading platform...")
-        await page.goto("http://localhost:3333/", wait_until="domcontentloaded", timeout=15000)
-        
-        # IMMEDIATE ACTION: Scroll directly to interactive terminal to start video with zero dead air
-        print("2. Immediate execution on interactive terminal...")
+        # Load local platform — use networkidle to wait for full Vue hydration
+        print("1. Loading platform (waiting for full render)...")
+        await page.goto("http://localhost:3333/", wait_until="networkidle", timeout=45000)
+        # Wait for hero section to be fully rendered before any action
+        await page.wait_for_selector("h1", timeout=30000)
+        # Additional 2s buffer for CSS animations and component hydration
+        await page.wait_for_timeout(2000)
+
+        # Scroll hero into view and pause on it (gives reviewer first impression)
+        print("2. Showing hero section...")
+        await page.evaluate("window.scrollTo(0, 0)")
+        await page.wait_for_timeout(2500)
+
+        # Scroll to interactive terminal
+        print("3. Navigating to interactive terminal...")
         await page.locator("#showcase").scroll_into_view_if_needed()
         await page.wait_for_timeout(600)
         
@@ -80,7 +89,7 @@ async def record_master_seo_demo():
         # Navigate to GitHub official repo
         print("6. Showing official GitHub codebase...")
         try:
-            await page.goto("https://github.com/syntaxcraft2026/the-rooms", wait_until="domcontentloaded", timeout=20000)
+            await page.goto("https://github.com/syntaxcraft2026/syntaxcraft-seo-tools", wait_until="domcontentloaded", timeout=20000)
             await page.wait_for_timeout(2000)
             await page.mouse.wheel(0, 500)
             await page.wait_for_timeout(2000)
@@ -110,3 +119,4 @@ async def record_master_seo_demo():
 
 if __name__ == "__main__":
     asyncio.run(record_master_seo_demo())
+

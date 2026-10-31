@@ -74,3 +74,4 @@ if __name__ == "__main__":
         price="9.00"
     )
     print(builder.to_json_ld())
+

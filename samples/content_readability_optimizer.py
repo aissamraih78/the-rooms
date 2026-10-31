@@ -76,3 +76,4 @@ if __name__ == "__main__":
     stats = audit_readability(sample)
     print("✓ Paragraphs formed:", len(paras))
     print("✓ Readability Stats:", stats)
+
