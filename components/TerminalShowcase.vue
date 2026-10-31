@@ -1,56 +1,57 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const activeTab = ref('extractor')
+const activeTab = ref('title')
 const isRunning = ref(false)
 const terminalOutput = ref<string[]>([
-  '✓ Loaded 4 parallel workers on Python 3.12 engine',
-  '✓ Dataset connection established: SSL verified endpoint',
-  '✓ Target ready: https://api.public-market.io/v2/catalog',
-  '⚡ Ready to run automated tasks...'
+  '✓ Loaded 15 SEO automation modules on Python 3.12 engine',
+  '✓ Search engine guideline validator: Active & Compliant',
+  '✓ Target: On-Page SEO Optimization & Schema Generator',
+  '⚡ Ready to run automated SEO tasks...'
 ])
 
 const tabs = [
-  { id: 'extractor', name: 'data_extractor.py' },
-  { id: 'bot', name: 'webhook_worker.py' },
-  { id: 'pipeline', name: 'data_pipeline.py' },
+  { id: 'title', name: 'title_optimizer.py' },
+  { id: 'schema', name: 'schema_builder.py' },
+  { id: 'content', name: 'content_formatter.py' },
 ]
 
 const codeSnippets: Record<string, string[]> = {
-  extractor: [
-    'import asyncio, httpx',
+  title: [
+    'from seo_tools import optimize_product_title',
     '',
-    'async def sync_public_catalog(api_endpoint):',
-    '    async with httpx.AsyncClient(timeout=10.0) as client:',
-    '        response = await client.get(api_endpoint)',
-    '        items = response.json().get("results", [])',
-    '        return [clean_entity(item) for item in items]',
-    '',
-    '# Autonomous scheduler daemon',
-    'asyncio.run(pipeline_daemon(interval_sec=3600))'
+    '# High-CTR Product Title Optimization Engine',
+    'title, score = optimize_product_title(',
+    '    raw_name="handmade leather messenger bag men vintage",',
+    '    primary_keyword="Leather Messenger Bag",',
+    '    max_chars=60',
+    ')',
+    'print(f"SEO Title: {title}")',
+    'print(f"SERP Pixel Width: 482px | CTR Score: {score}/100")'
   ],
-  bot: [
-    'from fastapi import FastAPI, Request',
-    'from bot_handler import notify_telegram, sync_database',
+  schema: [
+    'from schema_tools import ProductSchema',
     '',
-    'app = FastAPI(title="SyntaxCraft Webhook Listener")',
-    '',
-    '@app.post("/webhooks/order-created")',
-    'async def handle_order(req: Request):',
-    '    event = await req.json()',
-    '    await sync_database(event["data"])',
-    '    await notify_telegram(f"⚡ New Order Settled: ${event[\'total\']}")',
-    '    return {"status": "dispatched"}'
+    '# Build Google Rich-Result Schema.org JSON-LD',
+    'schema = ProductSchema(',
+    '    name="Vintage Leather Messenger Bag",',
+    '    sku="SKU-8921",',
+    '    price="149.00",',
+    '    currency="USD",',
+    '    rating=4.9',
+    ')',
+    'json_ld = schema.to_json_ld()',
+    'print("✓ Google Search Console validation passed [0 errors]")'
   ],
-  pipeline: [
-    'import polars as pl',
-    'from sqlalchemy import create_engine',
+  content: [
+    'from content_tools import format_paragraphs, audit_readability',
     '',
-    'def execute_etl_pipeline(source_csv, db_uri):',
-    '    df = pl.read_csv(source_csv).filter(pl.col("verified") == True)',
-    '    df = df.with_columns(pl.col("revenue").fill_null(0))',
-    '    df.write_database(table_name="analytics_daily", connection=db_uri)',
-    '    print("✓ Pipeline ETL finished: 12,480 rows indexed.")'
+    '# Paragraph flow and readability score analyzer',
+    'clean_body = format_paragraphs(raw_copy, words_per_p=45)',
+    'stats = audit_readability(clean_body)',
+    '',
+    'print(f"✓ Flesch-Kincaid Score: {stats.score} [Optimal]")',
+    'print(f"✓ Formatted 6 paragraphs with H2 transition anchors")'
   ]
 }
 
@@ -60,22 +61,22 @@ function runScript() {
   terminalOutput.value = ['Executing ' + activeTab.value + ' in sandbox...']
   
   setTimeout(() => {
-    terminalOutput.value.push('→ Initializing isolated sandbox environment...')
+    terminalOutput.value.push('→ Initializing isolated SEO execution runtime...')
   }, 400)
   
   setTimeout(() => {
-    if (activeTab.value === 'extractor') {
-      terminalOutput.value.push('→ Connected 10 async worker threads...')
-      terminalOutput.value.push('→ Processed 1,420 clean records [0 errors]')
-      terminalOutput.value.push('✓ Status 200 OK — Data persisted to SQLite warehouse!')
-    } else if (activeTab.value === 'bot') {
-      terminalOutput.value.push('→ Webhook payload received & signature verified.')
-      terminalOutput.value.push('→ Sent notification to Telegram channel [Message ID: 94812]')
-      terminalOutput.value.push('✓ Status 200 OK — Task resolved in 84ms!')
+    if (activeTab.value === 'title') {
+      terminalOutput.value.push('→ Analyzing search intent weighting & keyword density...')
+      terminalOutput.value.push('→ Generated: "Vintage Leather Messenger Bag for Men | Handcrafted Daily Briefcase"')
+      terminalOutput.value.push('✓ Status 200 OK — 58 characters (482px width) — CTR Score: 94/100!')
+    } else if (activeTab.value === 'schema') {
+      terminalOutput.value.push('→ Validating Schema.org Product & AggregateRating attributes...')
+      terminalOutput.value.push('→ Synthesized valid JSON-LD structured data block.')
+      terminalOutput.value.push('✓ Status 200 OK — Google Rich Result Eligibility Verified!')
     } else {
-      terminalOutput.value.push('→ Loaded dataset: 14,200 raw data entities.')
-      terminalOutput.value.push('→ Normalizing schema & indexing timestamps...')
-      terminalOutput.value.push('✓ ETL execution finished in 142ms [Memory: 18MB]!')
+      terminalOutput.value.push('→ Scanning sentence length distribution & transition words...')
+      terminalOutput.value.push('→ Restructured 4 dense blocks into 6 readable paragraphs.')
+      terminalOutput.value.push('✓ Status 200 OK — Flesch-Kincaid: 78.4 (Plain English, Grade 8)!')
     }
     isRunning.value = false
   }, 1200)
@@ -152,7 +153,7 @@ function formatCode(code: string): string {
   // 3. Highlight keywords
   res = res.replace(/\b(import|from|async|def|return|await|with|as)\b/g, '<span style="color: #f43f5e; font-weight: 600;">$1</span>')
   // 4. Highlight classes and functions
-  res = res.replace(/\b(FastAPI|Request|AsyncClient|polars|pl|sqlite3|create_engine)\b/g, '<span style="color: #38bdf8;">$1</span>')
+  res = res.replace(/\b(ProductSchema|Review|optimize_product_title|format_paragraphs|audit_readability|print)\b/g, '<span style="color: #38bdf8;">$1</span>')
 
   // Restore tokens
   return res.replace(/___TOKEN_(\d+)___/g, (_, idx) => tokens[parseInt(idx, 10)])

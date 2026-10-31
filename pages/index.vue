@@ -2,11 +2,11 @@
 import { site } from '~/data/site'
 
 useHead({
-  title: 'SyntaxCraft — High-Performance Web & Python Automation Studio',
+  title: 'SyntaxCraft — Production SEO Automation & Webmaster Utilities Studio',
   meta: [
     {
       name: 'description',
-      content: 'Engineering custom web applications, workflow automations, and robust public data pipelines for growing digital businesses.'
+      content: 'Modular SEO title generators, Schema.org builders, paragraph flow optimizers, and automated webmaster utilities for ambitious digital operations.'
     }
   ]
 })
@@ -21,20 +21,20 @@ useHead({
           <div>
             <div class="badge">
               <span class="badge-dot"></span>
-              Pre-Engineered Python Codebases & Modern Web Suites
+              White-Hat SEO Automation & Webmaster Utilities
             </div>
 
             <h1 class="hero-title">
-              Production-Grade <span class="gradient-cyan-indigo">Web Codebases</span> & Autonomous <span class="gradient-text">Python Automation</span>
+              Production-Grade <span class="gradient-cyan-indigo">SEO Automation</span> & High-Impact <span class="gradient-text">Webmaster Utilities</span>
             </h1>
 
             <p class="hero-subtitle">
-              Commercial-grade, battle-tested software packages, intelligent scrapers, public SEO analytics pipelines, and 24/7 background worker daemons. Clean source code, perpetual commercial license, and instant digital delivery.
+              Commercial-grade, battle-tested SEO algorithms, intent-weighted title generators, Schema.org rich snippet builders, and website management scripts. Clean source code, perpetual commercial license, and instant digital delivery.
             </p>
 
             <div class="hero-actions">
-              <NuxtLink to="/#pricing" class="btn btn-primary">
-                Explore Software Packages
+              <NuxtLink to="/#tools" class="btn btn-primary">
+                Explore 15 SEO Tools ($5–$19)
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </NuxtLink>
               <a href="#showcase" class="btn btn-secondary">
@@ -58,14 +58,61 @@ useHead({
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section-shell">
+    <!-- Modular SEO & Webmaster Tools Catalog -->
+    <section id="tools" class="section-shell" style="background: #ffffff;">
       <div class="container">
         <div class="section-head">
-          <div class="badge">Software Packages</div>
-          <h2>Production-Grade Codebases for Modern Digital Operations</h2>
+          <div class="badge">Individual Utility Catalog</div>
+          <h2>Specialized SEO Automation & Webmaster Utilities</h2>
           <p>
-            Whether you need to extract critical public market intelligence, automate complex multi-platform processes, or deploy high-converting web applications, we license production-grade software you can deploy immediately.
+            Choose from our modular catalog of 15 standalone Python tools, title synthesizers, schema generators, and paragraph optimizers. Each tool is available as an individual single-purchase license or bundled in complete suites.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;">
+          <div
+            v-for="tool in site.tools"
+            :key="tool.id"
+            style="background: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s ease, box-shadow 0.2s ease;"
+          >
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px;">
+                <span class="badge" style="font-size: 0.72rem; padding: 4px 10px;">{{ tool.category }}</span>
+                <span style="font-size: 1.35rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-mono);">{{ tool.price }}</span>
+              </div>
+              <h3 style="font-size: 1.15rem; margin-bottom: 10px; color: var(--text-primary);">{{ tool.name }}</h3>
+              <p style="font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 20px;">{{ tool.deck }}</p>
+              
+              <ul style="list-style: none; padding: 0; margin-bottom: 24px; display: grid; gap: 8px;">
+                <li v-for="feat in tool.features" :key="feat" style="font-size: 0.82rem; color: var(--text-secondary); display: flex; align-items: center; gap: 8px;">
+                  <span style="color: #10b981; font-weight: bold;">✓</span>
+                  <span>{{ feat }}</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <NuxtLink
+                :to="'/contact?tool=' + tool.id"
+                class="btn btn-secondary btn-sm"
+                style="width: 100%; text-align: center; justify-content: center; font-size: 0.84rem;"
+              >
+                License Utility ({{ tool.price }})
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Software Domains -->
+    <section id="services" class="section-shell" style="background: #f8fafc; border-top: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="section-head">
+          <div class="badge">Engineering Domains</div>
+          <h2>Production-Grade Architectures for Digital Operators</h2>
+          <p>
+            Whether you need to optimize search engine visibility, automate webmaster audits, or deploy high-performance full-stack web applications, we license production-grade software you can deploy immediately.
           </p>
         </div>
 
@@ -97,13 +144,13 @@ useHead({
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="section-shell" style="background: #f8fafc; border-block: 1px solid var(--border-subtle);">
+    <section id="pricing" class="section-shell" style="background: #ffffff; border-block: 1px solid var(--border-subtle);">
       <div class="container">
         <div class="section-head">
-          <div class="badge">Commercial Software Licenses</div>
+          <div class="badge">Commercial Software Licenses & Bundles</div>
           <h2>Flat-Fee Pricing with Instant Digital Delivery</h2>
           <p>
-            Choose the software codebase package that fits your architecture. Every package includes full commented source code, private GitHub repository access, Docker environment configurations, and a 100% perpetual commercial license.
+            Choose between individual standalone utilities or full-suite automation bundles. Every license includes full commented source code, private GitHub repository access, and a 100% perpetual commercial license.
           </p>
         </div>
 
@@ -114,7 +161,7 @@ useHead({
             class="pricing-card"
             :class="{ featured: pkg.popular }"
           >
-            <div v-if="pkg.popular" class="popular-ribbon">Most Popular Choice</div>
+            <div v-if="pkg.popular" class="popular-ribbon">Most Popular Suite</div>
 
             <div class="price-header">
               <h3>{{ pkg.name }}</h3>
@@ -156,15 +203,15 @@ useHead({
           <div class="badge">Fulfillment Model</div>
           <h2>How Digital Delivery & Onboarding Works</h2>
           <p>
-            Instant, automated, and secure fulfillment for developer codebases and automation architectures.
+            Instant, automated, and secure fulfillment for developer codebases, SEO utilities, and automation architectures.
           </p>
         </div>
 
         <div class="process-steps">
           <div class="step-card">
             <div class="step-num">STAGE 01</div>
-            <h3>Package Selection</h3>
-            <p>Select the automation package, public analytics engine, or Nuxt 3 web suite that matches your project requirements.</p>
+            <h3>Utility or Suite Selection</h3>
+            <p>Select individual SEO utilities starting at $5 or choose our complete 15-tool bundle based on your operational scale.</p>
           </div>
 
           <div class="step-card">
@@ -194,7 +241,7 @@ useHead({
         <div class="section-head">
           <div class="badge">Got Questions?</div>
           <h2>Frequently Asked Questions</h2>
-          <p>Everything you need to know about our development lifecycle, intellectual property, and billing.</p>
+          <p>Everything you need to know about our SEO utilities, intellectual property, and billing.</p>
         </div>
 
         <div class="faq-wrap">
@@ -215,16 +262,16 @@ useHead({
     <section class="section-shell">
       <div class="container">
         <div class="cta-banner">
-          <h2>Ready to Deploy Production-Grade Automation & Web Codebases?</h2>
+          <h2>Ready to Deploy Production-Grade SEO Automation Tools?</h2>
           <p>
-            Choose your software package for instant digital delivery or reach out to our engineering support desk for technical onboarding questions.
+            Choose your individual utility or complete suite for instant digital delivery, or reach out to our engineering support desk for technical questions.
           </p>
           <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-            <NuxtLink to="/#pricing" class="btn btn-primary">
-              Explore Software Packages
+            <NuxtLink to="/#tools" class="btn btn-primary">
+              Explore 15 SEO Utilities
             </NuxtLink>
             <NuxtLink to="/contact" class="btn btn-secondary">
-              Product Support & Pre-Purchase Questions
+              Product Support & Inquiries
             </NuxtLink>
           </div>
         </div>

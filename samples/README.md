@@ -1,23 +1,43 @@
-# SyntaxCraft Studio - Open Evaluation Samples 📦
+# SyntaxCraft — Public Evaluation Samples
 
-Welcome to the public evaluation samples provided by **SyntaxCraft Studio** ([https://syntaxcraft.dev](https://syntaxcraft.dev)).
+This directory contains standalone, zero-dependency Python utilities for merchant underwriting evaluation and developer verification.
 
-These self-contained scripts demonstrate our engineering patterns and code standards. They can be executed directly without third-party dependencies:
-
-### 1. `sample_seo_pipeline.py`
-A working asynchronous pipeline demonstrating public SEO signal collection, Google Trends interest estimation, and Core Web Vitals performance ratings.
-```bash
-python samples/sample_seo_pipeline.py
-```
-
-### 2. `sample_lemon_squeezy_webhook.py`
-Demonstrates HMAC-SHA256 signature verification and order dispatching for our authorized Merchant of Record, **Lemon Squeezy**.
-```bash
-python samples/sample_lemon_squeezy_webhook.py
-```
+All scripts operate under strict **White-Hat Webmaster & Search Engine Optimization Guidelines**:
+- Zero private data harvesting or PII collection.
+- Zero authentication bypass.
+- 100% focused on on-page SEO optimization, Schema.org rich snippets, title generation, and sitemap validation.
 
 ---
 
-### Commercial Packages
-For full production-grade suites, persistent SQLite/PostgreSQL data pipelines, background daemons, and Nuxt 3 full-stack starter codebases with dedicated technical support and perpetual commercial licenses, visit:
-👉 **[https://syntaxcraft.dev](https://syntaxcraft.dev)**
+### Available Evaluation Utilities
+
+1. **`seo_title_generator.py`**
+   - Algorithmic CTR optimization for e-commerce product titles and articles.
+   - Calculates Arial 20px SERP pixel widths to prevent `...` truncation.
+   - Computes click-through rate (CTR) heuristics and keyword weighting.
+   - Run: `python seo_title_generator.py`
+
+2. **`schema_builder.py`**
+   - Synthesizes Schema.org JSON-LD structured data for Google Rich Results.
+   - Supports Product, Offer, AggregateRating, and InStock declarations.
+   - Search Console compliant.
+   - Run: `python schema_builder.py`
+
+3. **`content_readability_optimizer.py`**
+   - Natural language body text formatter.
+   - Calculates Flesch Reading Ease and Flesch-Kincaid Grade Level.
+   - Automatically restructures monolithic text into high-retention paragraphs.
+   - Run: `python content_readability_optimizer.py`
+
+4. **`sample_lemon_squeezy_webhook.py`**
+   - Demonstrates secure HMAC-SHA256 signature verification for Lemon Squeezy order webhooks.
+   - Validates immediate automated digital license provisioning upon successful checkout.
+   - Run: `python sample_lemon_squeezy_webhook.py`
+
+---
+
+### Commercial Distribution Architecture
+
+SyntaxCraft maintains two tiers of codebase access:
+* **Public Evaluation Codebases (This Directory):** Free, runnable samples allowing underwriters, reviewers, and buyers to verify code quality, typing, and compliance before purchase.
+* **Commercial Codebases ($5 to $249):** Production-grade full suites distributed via private GitHub repository invites and direct ZIP downloads provisioned automatically upon Lemon Squeezy order settlement.
