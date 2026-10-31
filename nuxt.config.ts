@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   nitro: {
     prerender: {
+      crawlLinks: false,
       routes: [
         '/',
         '/terms',
@@ -27,7 +28,7 @@ export default defineNuxtConfig({
           name: 'description',
           content: 'Engineering custom web applications, workflow automations, and robust public data pipelines for growing digital businesses and ambitious creators.',
         },
-        { name: 'theme-color', content: '#070b12' },
+        { name: 'theme-color', content: '#f8fafc' },
         { property: 'og:title', content: 'SyntaxCraft — High-Performance Web & Python Automation Studio' },
         { property: 'og:description', content: 'Engineering custom web applications, workflow automations, and robust public data pipelines.' },
         { property: 'og:type', content: 'website' },
