@@ -6,6 +6,8 @@ and logical SEO heading structure. Operates on your own website's HTML files.
 Usage:
     python heading_structure_checker.py --file page.html
     python heading_structure_checker.py --html "<h1>Title</h1><h3>Skipped H2!</h3>"
+    python heading_structure_checker.py --file page.html --output report.json
+    python heading_structure_checker.py  (demo mode)
 
 Author: SyntaxCraft Studio | contact@syntaxcraft.dev
 """
@@ -13,10 +15,11 @@ Author: SyntaxCraft Studio | contact@syntaxcraft.dev
 import argparse
 import json
 import re
+import sys
 from typing import Optional
 
 
-def extract_headings(html: str) -> list[dict]:
+def extract_headings(html: str) -> list:
     """
     Extract all heading tags (H1-H6) from raw HTML in document order.
     Returns list of {"level": int, "text": str, "position": int}
@@ -32,7 +35,7 @@ def extract_headings(html: str) -> list[dict]:
     return headings
 
 
-def audit_headings(headings: list[dict]) -> dict:
+def audit_headings(headings: list) -> dict:
     """
     Audit a list of heading entries for structural issues.
 
@@ -57,7 +60,7 @@ def audit_headings(headings: list[dict]) -> dict:
             "suggestions": [],
             "headings": [],
             "score": 0,
-            "status": "❌ NO HEADINGS",
+            "status": "NO HEADINGS",
         }
 
     # H1 count check
@@ -131,12 +134,12 @@ def audit_headings(headings: list[dict]) -> dict:
         "warnings": warnings,
         "suggestions": suggestions,
         "structure_score": score,
-        "status": "✅ VALID STRUCTURE" if score >= 80 else "⚠️ REVIEW NEEDED" if score >= 50 else "❌ CRITICAL ERRORS",
+        "status": "VALID STRUCTURE" if score >= 80 else "REVIEW NEEDED" if score >= 50 else "CRITICAL ERRORS",
         "headings": headings,
     }
 
 
-def generate_toc(headings: list[dict]) -> str:
+def generate_toc(headings: list) -> str:
     """Generate a Markdown Table of Contents from heading list."""
     lines = []
     for h in headings:
@@ -148,19 +151,35 @@ def generate_toc(headings: list[dict]) -> str:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="SyntaxCraft H1-H6 Heading Structure Checker"
+        description="SyntaxCraft H1-H6 Heading Structure Checker",
+        epilog="Run with no arguments for a built-in demo."
     )
-    group = parser.add_mutually_exclusive_group(required=True)
+    group = parser.add_mutually_exclusive_group(required=False)
     group.add_argument("--file", help="Path to HTML file to audit")
     group.add_argument("--html", help="Raw HTML string to audit")
     parser.add_argument("--toc", action="store_true", help="Also output a Table of Contents")
+    parser.add_argument("--output", help="Save report to this JSON file")
     args = parser.parse_args()
 
     if args.file:
-        with open(args.file, "r", encoding="utf-8") as f:
-            html = f.read()
-    else:
+        try:
+            with open(args.file, "r", encoding="utf-8") as f:
+                html = f.read()
+        except FileNotFoundError:
+            print(f"[ERROR] File not found: {args.file}", file=sys.stderr)
+            sys.exit(1)
+    elif args.html:
         html = args.html
+    else:
+        print("[INFO] Running in demo mode. Use --file or --html for your content.\n")
+        html = """
+        <h1>SyntaxCraft Production SEO Automation Tools</h1>
+        <h2>Core Architecture &amp; Modular Scripts</h2>
+        <h3>Intent-Weighted Title Generator</h3>
+        <h3>Schema.org Rich Snippet Builder</h3>
+        <h2>Webmaster Verification Utilities</h2>
+        <h3>Robots.txt &amp; Sitemap Validators</h3>
+        """
 
     headings = extract_headings(html)
     report = audit_headings(headings)
@@ -168,7 +187,12 @@ def main():
     if args.toc and headings:
         report["table_of_contents"] = generate_toc(headings)
 
-    print(json.dumps(report, indent=2, ensure_ascii=False))
+    if args.output:
+        with open(args.output, "w", encoding="utf-8") as f:
+            json.dump(report, f, indent=2, ensure_ascii=False)
+        print(f"[OK] Report saved to {args.output}")
+    else:
+        print(json.dumps(report, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

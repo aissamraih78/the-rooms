@@ -12,6 +12,7 @@ export default defineNuxtConfig({
         '/privacy',
         '/refund',
         '/contact',
+        '/listings',
       ],
     },
   },

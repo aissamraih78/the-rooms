@@ -26,124 +26,139 @@ export const site = {
   ],
   tools: [
     {
+      id: 'bulk-slug-formatter',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/f1337fd3-de71-4da5-977e-06c0594fb8e8',
+      name: 'High-Performance SEO URL Slug Formatter',
+      category: 'Webmaster Utilities',
+      price: '€3.99',
+      deck: 'Sanitizes special characters, accents, and stopwords to output clean, concise, keyword-focused URL slugs.',
+      features: ['Accented character transliteration', 'Stopword elimination list', 'Trailing slash & case standardizer', 'Zero redirect loop output']
+    },
+    {
+      id: 'robots-directive-builder',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/73ed05e5-cd80-4035-80ac-1ae36e104d91',
+      name: 'Robots.txt Security & Directive Builder',
+      category: 'Webmaster Utilities',
+      price: '€4.99',
+      deck: 'Constructs fine-grained robots.txt directives, blocks unwanted crawling agents, and regulates crawl budget.',
+      features: ['User-agent blocklist management', 'Crawl-delay & Disallow rules', 'Sitemap index declaration', 'Syntax verification parser']
+    },
+    {
       id: 'seo-title-generator',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/98215071-4f68-40d9-92b9-b21d542ef110',
       name: 'E-Commerce SEO Title Generator',
       category: 'Content & Titles',
-      price: '$9',
+      price: '€8.99',
       deck: 'Generates high-CTR, intent-optimized product titles based on character limits and search engine ranking factors.',
       features: ['Search intent weighting', '60-character hard truncation guard', 'Primary & secondary keyword injection', 'Bulk CSV input/output']
     },
     {
       id: 'meta-description-engine',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/2277ca6f-e811-4549-ab78-90848d95ef23',
       name: 'CTR Meta Description Synthesizer',
       category: 'Content & Titles',
-      price: '$9',
+      price: '€8.99',
       deck: 'Automates persuasive, high-converting meta descriptions calibrated for 155-160 character Google SERP snippets.',
       features: ['Call-To-Action (CTA) formulation', 'SERP pixel-width measurement', 'Keyword highlighting preview', 'Zero boilerplate duplication']
     },
     {
-      id: 'keyword-cluster-builder',
-      name: 'Semantic Keyword Cluster Engine',
-      category: 'Keyword Research',
-      price: '$19',
-      deck: 'Clusters raw keyword lists into topical silos and content categories using semantic similarity algorithms.',
-      features: ['Levenshtein & TF-IDF clustering', 'Search intent classification', 'Parent-topic mapping', 'Clean JSON/Excel exports']
+      id: 'xml-sitemap-generator',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/6caa2062-0e9c-4466-ba09-cbcae786a94e',
+      name: 'XML & Image Sitemap 0.9 Validator',
+      category: 'Site Structure',
+      price: '€8.99',
+      deck: 'Validates and builds Google-compliant sitemap.xml files with proper lastmod timestamps, priorities, and gzip support.',
+      features: ['50,000 URL chunking support', 'Image sitemap tag integration', 'Automatic protocol verification', 'Valid sitemaps.org protocol 0.9']
     },
     {
-      id: 'product-schema-generator',
-      name: 'Product Schema JSON-LD Generator',
+      id: 'opengraph-card-generator',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/b8a331ae-ce24-40d0-9a2f-402e934724a6',
+      name: 'OpenGraph & Twitter Card Meta Synthesizer',
       category: 'Metadata & Schema',
-      price: '$14',
-      deck: 'Instantly builds Google Rich Result compliant Schema.org JSON-LD structured data for products, offers, and reviews.',
-      features: ['Schema.org Product & AggregateRating', 'Google Search Console verified format', 'Automated currency & price injection', 'One-click copy or injection script']
-    },
-    {
-      id: 'content-readability-optimizer',
-      name: 'Content & Paragraph Structure Optimizer',
-      category: 'Content & Titles',
-      price: '$12',
-      deck: 'Analyzes body copy, formats paragraph lengths, and computes Flesch-Kincaid readability scores for optimal user retention.',
-      features: ['Flesch-Kincaid score calculator', 'Passive voice detection & fixers', 'Sentence length distribution analyzer', 'Smart H2/H3 transition points']
+      price: '€8.99',
+      deck: 'Generates flawless social sharing tags for Facebook, LinkedIn, Twitter/X, and WhatsApp with image aspect ratio guides.',
+      features: ['og:image 1200x630 validation', 'summary_large_image Twitter cards', 'Fallback tag hierarchy', 'Instant HTML snippet injection']
     },
     {
       id: 'heading-structure-auditor',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/06e2d5cc-e784-4e18-bfe6-3371e1ea7c66',
       name: 'H1-H6 Hierarchy & Semantic Structurer',
       category: 'Site Structure',
-      price: '$9',
+      price: '€8.99',
       deck: 'Scans and reorganizes HTML heading structures to guarantee strict WCAG accessibility and logical search hierarchy.',
       features: ['Missing H1/H2 hierarchy alerts', 'Keyword placement in subheadings', 'HTML semantic validation', 'Automated Table of Contents generator']
     },
     {
-      id: 'internal-link-optimizer',
-      name: 'Internal Link & Anchor Text Recommender',
-      category: 'Site Structure',
-      price: '$19',
-      deck: 'Analyzes page text and suggests contextually relevant internal links with non-spammy anchor texts.',
-      features: ['Page relevance matching', 'Anchor text diversity control', 'Orphan page connection engine', 'Silo architecture enforcement']
-    },
-    {
-      id: 'xml-sitemap-generator',
-      name: 'Automated XML & Image Sitemap Builder',
-      category: 'Site Structure',
-      price: '$9',
-      deck: 'Builds, splits, and compresses Google-compliant sitemap.xml files with proper lastmod timestamps and priorities.',
-      features: ['50,000 URL chunking support', 'Image sitemap tag integration', 'Automatic gzip compression', 'Valid sitemaps.org protocol 0.9']
-    },
-    {
-      id: 'robots-directive-builder',
-      name: 'Robots.txt Security & Directive Generator',
-      category: 'Webmaster Utilities',
-      price: '$5',
-      deck: 'Constructs fine-grained robots.txt directives, blocks unwanted crawling agents, and regulates crawl budget.',
-      features: ['User-agent blocklist management', 'Crawl-delay & Disallow rules', 'Sitemap index declaration', 'Syntax verification parser']
-    },
-    {
-      id: 'canonical-hreflang-manager',
-      name: 'Canonical & Multi-Lingual Hreflang Manager',
-      category: 'Metadata & Schema',
-      price: '$9',
-      deck: 'Validates reciprocal hreflang annotations across multi-language stores to eliminate duplicate content penalties.',
-      features: ['ISO 639-1 & ISO 3166-1 validation', 'Reciprocal link verification', 'Self-referencing canonical generator', 'Multi-regional e-commerce support']
-    },
-    {
       id: 'image-alt-optimizer',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/51bdf402-96bc-4a9c-8d5a-71a9b483ecbe',
       name: 'Image Alt Tag & SEO Slug Formatter',
       category: 'Content & Titles',
-      price: '$9',
+      price: '€8.99',
       deck: 'Standardizes image filenames and generates descriptive, keyword-rich Alt attributes compliant with accessibility standards.',
       features: ['Accessibility WCAG 2.1 compliance', 'Kebab-case URL slugification', 'Exif metadata stripper for speed', 'Bulk image processing script']
     },
     {
-      id: 'serp-snippet-previewer',
-      name: 'SERP Snippet & Pixel Truncation Previewer',
-      category: 'Webmaster Utilities',
-      price: '$5',
-      deck: 'Accurately previews desktop and mobile Google search snippets with real font rendering to prevent ugly "..." truncations.',
-      features: ['Arial 18px / 20px pixel calculation', 'Mobile vs Desktop view toggling', 'Rich snippet badge simulation', 'Instant character count telemetry']
+      id: 'canonical-hreflang-manager',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/df59b79f-b15e-468b-94c0-7294eedb9254',
+      name: 'Canonical & Multi-Lingual Hreflang Manager',
+      category: 'Metadata & Schema',
+      price: '€8.99',
+      deck: 'Validates reciprocal hreflang annotations across multi-language stores to eliminate duplicate content penalties.',
+      features: ['ISO 639-1 & ISO 3166-1 validation', 'Reciprocal link verification', 'Self-referencing canonical generator', 'Multi-regional e-commerce support']
     },
     {
-      id: 'bulk-slug-formatter',
-      name: 'High-Performance SEO URL Slug Formatter',
-      category: 'Webmaster Utilities',
-      price: '$5',
-      deck: 'Sanitizes special characters, accents, and stopwords to output clean, concise, keyword-focused URL slugs.',
-      features: ['Accented character transliteration', 'Stopword elimination list', 'Trailing slash & case standardizer', 'Zero redirect loop output']
+      id: 'keyword-density-analyzer',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/5a182bc4-e72e-4bc5-8b87-046a017745cd',
+      name: 'Keyword Density & TF-IDF Over-Optimization Guard',
+      category: 'Content & Titles',
+      price: '€11.99',
+      deck: 'Calculates keyword density, detects search engine penalty stuffing risks, and suggests natural synonym distributions.',
+      features: ['TF-IDF density scoring', 'Over-optimization warnings (>2.5%)', 'Stopword filter exclusion', 'JSON & CLI reporting']
+    },
+    {
+      id: 'content-readability-optimizer',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/3b4283d6-ea34-4e24-8cde-7783a3857b31',
+      name: 'Content & Paragraph Structure Optimizer',
+      category: 'Content & Titles',
+      price: '€11.99',
+      deck: 'Analyzes body copy, formats paragraph lengths, and computes Flesch-Kincaid readability scores for optimal user retention.',
+      features: ['Flesch-Kincaid score calculator', 'Passive voice detection & fixers', 'Sentence length distribution analyzer', 'Smart H2/H3 transition points']
     },
     {
       id: 'redirect-rules-builder',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/5bda11e7-6beb-4915-971e-046281c0612d',
       name: '301/302 Redirect Mapping & RegEx Builder',
       category: 'Site Structure',
-      price: '$12',
+      price: '€11.99',
       deck: 'Transforms old URL lists into optimized Nginx, Apache (.htaccess), or Cloudflare redirect rules without query string loss.',
       features: ['Regex URL wildcard matching', 'Duplicate rule detector', 'Status code 301 vs 302 selector', 'Instant server config export']
     },
     {
-      id: 'opengraph-card-generator',
-      name: 'OpenGraph & Twitter Card Meta Synthesizer',
+      id: 'product-schema-generator',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/f26b61c5-9d11-4663-8d18-80ad5060423d',
+      name: 'Product Schema JSON-LD Generator',
       category: 'Metadata & Schema',
-      price: '$5',
-      deck: 'Generates flawless social sharing tags for Facebook, LinkedIn, Twitter/X, and WhatsApp with image aspect ratio guides.',
-      features: ['og:image 1200x630 validation', 'summary_large_image Twitter cards', 'Fallback tag hierarchy', 'Instant HTML snippet injection']
+      price: '€14.99',
+      deck: 'Instantly builds Google Rich Result compliant Schema.org JSON-LD structured data for products, offers, and reviews.',
+      features: ['Schema.org Product & AggregateRating', 'Google Search Console verified format', 'Automated currency & price injection', 'One-click copy or injection script']
+    },
+    {
+      id: 'faq-article-schema-engine',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/19e8a11e-2c55-4c70-b1e9-c6b34a619392',
+      name: 'FAQ & Article Rich Result Schema Engine',
+      category: 'Metadata & Schema',
+      price: '€14.99',
+      deck: 'Generates FAQPage and Article JSON-LD markup blocks for maximum SERP visibility and rich snippet expansion.',
+      features: ['Google FAQ Rich Snippet schema', 'Article & Author metadata mapping', 'Strict Schema.org syntax check', 'Instant script injection output']
+    },
+    {
+      id: 'internal-link-optimizer',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/7989362a-52ce-4fbe-8a13-6db37ff8f42e',
+      name: 'Internal Link & Anchor Text Recommender',
+      category: 'Site Structure',
+      price: '€17.99',
+      deck: 'Analyzes page text and suggests contextually relevant internal links with non-spammy anchor texts.',
+      features: ['Page relevance matching', 'Anchor text diversity control', 'Orphan page connection engine', 'Silo architecture enforcement']
     }
   ],
   services: [
@@ -204,7 +219,7 @@ export const site = {
     {
       id: 'single-tool',
       name: 'Single SEO Utility License',
-      price: '$5 – $19',
+      price: '€3.99 – €17.99',
       billing: 'one-time purchase per utility',
       description: 'Choose any individual Python script or webmaster tool from our catalog with full commented source code.',
       popular: false,
@@ -220,24 +235,26 @@ export const site = {
     {
       id: 'all-in-one-toolkit',
       name: 'All-in-One SEO & Webmaster Suite',
-      price: '$89',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/c933f370-3cfd-4481-8685-66dfb26d6a34',
+      price: '€56.99',
       billing: 'one-time digital purchase',
-      description: 'The complete bundle of all 15 SEO automation tools, title generators, schema builders, and site administration utilities.',
+      description: 'The complete bundle of all specialized SEO automation tools, title generators, schema builders, and site administration utilities.',
       popular: true,
       deliverables: [
-        'All 15 Specialized SEO & Webmaster automation tools',
+        'All Specialized SEO & Webmaster automation tools',
         'Unified CLI dashboard to run all tools from a single terminal',
         'Bulk CSV & JSON processing pipelines for large catalogs',
-        'Docker container environment for automated 24/7 execution',
+        'Docker container environment for automated execution',
         '14 Days priority technical support & setup assistance',
         '100% Perpetual commercial-use software license'
       ],
-      cta: 'Get Complete 15-Tool Suite'
+      cta: 'Get Complete Suite'
     },
     {
       id: 'pro-web-suite',
       name: 'Pro Web Platform & SEO Suite',
-      price: '$249',
+      checkoutUrl: 'https://syntaxcraft2026dev.lemonsqueezy.com/checkout/buy/bea7e38c-05ef-47c0-853a-efd098ec33c7',
+      price: '€71.99',
       billing: 'one-time digital purchase',
       description: 'Full modern web application codebase (Nuxt 3) integrated with our entire SEO optimization engine & Lemon Squeezy checkout.',
       popular: false,

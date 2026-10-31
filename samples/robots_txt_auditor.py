@@ -6,6 +6,8 @@ optimization and security on your own website.
 Usage:
     python robots_txt_auditor.py --file robots.txt
     python robots_txt_auditor.py --url https://yourdomain.com/robots.txt
+    python robots_txt_auditor.py --file robots.txt --output report.json
+    python robots_txt_auditor.py  (demo mode)
 
 Author: SyntaxCraft Studio | contact@syntaxcraft.dev
 """
@@ -13,6 +15,7 @@ Author: SyntaxCraft Studio | contact@syntaxcraft.dev
 import argparse
 import json
 import re
+import sys
 from urllib import request as urllib_request
 from typing import Optional
 
@@ -43,7 +46,7 @@ def load_robots(path: str) -> str:
         return f.read()
 
 
-def parse_robots(content: str) -> list[dict]:
+def parse_robots(content: str) -> list:
     """
     Parse robots.txt into a list of agent blocks.
     Each block: {"agent": str, "rules": [{"directive": str, "value": str}]}
@@ -177,28 +180,49 @@ def audit(content: str) -> dict:
         "warnings": warnings,
         "recommendations": recommendations,
         "coverage_score": score,
-        "status": "✅ HEALTHY" if score >= 80 else "⚠️ NEEDS REVIEW" if score >= 50 else "❌ CRITICAL ISSUES",
+        "status": "HEALTHY" if score >= 80 else "NEEDS REVIEW" if score >= 50 else "CRITICAL ISSUES",
         "parsed_blocks": blocks,
     }
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="SyntaxCraft Robots.txt Auditor"
+        description="SyntaxCraft Robots.txt Auditor",
+        epilog="Run with no arguments for a built-in demo."
     )
-    group = parser.add_mutually_exclusive_group(required=True)
+    group = parser.add_mutually_exclusive_group(required=False)
     group.add_argument("--file", help="Path to local robots.txt")
     group.add_argument("--url", help="Your domain URL to fetch robots.txt from")
+    parser.add_argument("--output", help="Save audit report to this JSON file")
     args = parser.parse_args()
 
     if args.file:
-        content = load_robots(args.file)
-    else:
+        try:
+            content = load_robots(args.file)
+        except FileNotFoundError:
+            print(f"[ERROR] File not found: {args.file}", file=sys.stderr)
+            sys.exit(1)
+    elif args.url:
         print(f"Fetching robots.txt from: {args.url}")
         content = fetch_robots(args.url)
+    else:
+        print("[INFO] Running in demo mode. Use --file or --url for your robots.txt.\n")
+        content = """User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Allow: /
+
+Sitemap: https://syntaxcraft.dev/sitemap.xml
+"""
 
     report = audit(content)
-    print(json.dumps(report, indent=2, ensure_ascii=False))
+
+    if args.output:
+        with open(args.output, "w", encoding="utf-8") as f:
+            json.dump(report, f, indent=2, ensure_ascii=False)
+        print(f"[OK] Report saved to {args.output}")
+    else:
+        print(json.dumps(report, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

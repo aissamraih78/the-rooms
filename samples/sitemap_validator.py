@@ -7,6 +7,8 @@ malformed XML — all on your own website's sitemap files.
 Usage:
     python sitemap_validator.py --file sitemap.xml
     python sitemap_validator.py --url https://yourdomain.com/sitemap.xml
+    python sitemap_validator.py --url https://yourdomain.com/sitemap.xml --timeout 30 --output report.json
+    python sitemap_validator.py  (demo mode)
 
 Author: SyntaxCraft Studio | contact@syntaxcraft.dev
 """
@@ -14,6 +16,7 @@ Author: SyntaxCraft Studio | contact@syntaxcraft.dev
 import argparse
 import json
 import re
+import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from typing import Optional
@@ -31,9 +34,9 @@ ISO8601_PATTERN = re.compile(
 )
 
 
-def fetch_sitemap(url: str) -> str:
+def fetch_sitemap(url: str, timeout: int = 15) -> str:
     """Fetch sitemap XML from a URL."""
-    with urllib_request.urlopen(url, timeout=15) as resp:
+    with urllib_request.urlopen(url, timeout=timeout) as resp:
         return resp.read().decode("utf-8")
 
 
@@ -43,7 +46,7 @@ def load_sitemap(path: str) -> str:
         return f.read()
 
 
-def validate_url(url: str) -> list[str]:
+def validate_url(url: str) -> list:
     """Basic URL format checks."""
     errors = []
     if not url.startswith(("http://", "https://")):
@@ -75,7 +78,8 @@ def parse_and_validate(xml_content: str) -> dict:
             "warnings": [...],
             "duplicates": [...],
             "valid": bool,
-            "urls_preview": [first 5 URLs]
+            "urls_preview": [first 5 URLs],
+            "image_entries": int
         }
     """
     errors = []
@@ -83,6 +87,7 @@ def parse_and_validate(xml_content: str) -> dict:
     seen_urls = set()
     duplicates = []
     url_entries = []
+    image_count = 0
 
     try:
         root = ET.fromstring(xml_content)
@@ -94,6 +99,7 @@ def parse_and_validate(xml_content: str) -> dict:
             "duplicates": [],
             "valid": False,
             "urls_preview": [],
+            "image_entries": 0,
         }
 
     # Detect sitemap index vs urlset
@@ -150,6 +156,17 @@ def parse_and_validate(xml_content: str) -> dict:
                         errors.append(f"Priority {p} out of range [0.0–1.0] on {loc[:60]}")
                 except ValueError:
                     errors.append(f"Non-numeric <priority> '{priority}' on {loc[:60]}")
+
+            # Image sitemap extension: detect image:image children
+            images = url_elem.findall(f"{{{IMAGE_NS}}}image")
+            if images:
+                image_count += len(images)
+                for img in images:
+                    img_loc = img.findtext(f"{{{IMAGE_NS}}}loc", "").strip()
+                    if img_loc:
+                        img_errors = validate_url(img_loc)
+                        if img_errors:
+                            errors.extend([f"[image:loc] {e}" for e in img_errors])
     else:
         errors.append(f"Unknown root element <{tag}>. Expected <urlset> or <sitemapindex>.")
 
@@ -163,32 +180,67 @@ def parse_and_validate(xml_content: str) -> dict:
     valid = len(errors) == 0
     return {
         "url_count": len(url_entries),
+        "image_entries": image_count,
         "errors": errors,
         "warnings": warnings[:10],  # cap warnings in output
         "duplicates": duplicates,
         "valid": valid,
-        "status": "✅ VALID" if valid else "❌ INVALID — fix errors above",
+        "status": "VALID" if valid else "INVALID — fix errors above",
         "urls_preview": url_entries[:5],
     }
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="SyntaxCraft Sitemap Validator (Sitemaps.org 0.9)"
+        description="SyntaxCraft Sitemap Validator (Sitemaps.org 0.9)",
+        epilog="Run with no arguments for a built-in demo."
     )
-    group = parser.add_mutually_exclusive_group(required=True)
+    group = parser.add_mutually_exclusive_group(required=False)
     group.add_argument("--file", help="Local sitemap.xml path")
     group.add_argument("--url", help="Remote sitemap URL (your own domain)")
+    parser.add_argument("--timeout", type=int, default=15, help="HTTP fetch timeout in seconds (default: 15)")
+    parser.add_argument("--output", help="Save validation report to this JSON file")
     args = parser.parse_args()
 
     if args.file:
-        content = load_sitemap(args.file)
-    else:
+        try:
+            content = load_sitemap(args.file)
+        except FileNotFoundError:
+            print(f"[ERROR] File not found: {args.file}", file=sys.stderr)
+            sys.exit(1)
+    elif args.url:
         print(f"Fetching sitemap from: {args.url}")
-        content = fetch_sitemap(args.url)
+        content = fetch_sitemap(args.url, timeout=args.timeout)
+    else:
+        print("[INFO] Running in demo mode. Use --file or --url for your sitemap.\n")
+        content = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://syntaxcraft.dev/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://syntaxcraft.dev/images/hero.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://syntaxcraft.dev/tools</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>"""
 
     report = parse_and_validate(content)
-    print(json.dumps(report, indent=2, ensure_ascii=False))
+
+    if args.output:
+        with open(args.output, "w", encoding="utf-8") as f:
+            json.dump(report, f, indent=2, ensure_ascii=False)
+        print(f"[OK] Report saved to {args.output}")
+    else:
+        print(json.dumps(report, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

@@ -7,6 +7,8 @@ own website content.
 Usage:
     python keyword_density_analyzer.py --text "your content here" --keyword "seo"
     python keyword_density_analyzer.py --file content.txt --keyword "automation"
+    python keyword_density_analyzer.py --file content.txt --top 15 --min-freq 2 --output report.json
+    python keyword_density_analyzer.py  (demo mode)
 
 Author: SyntaxCraft Studio | contact@syntaxcraft.dev
 """
@@ -15,11 +17,12 @@ import re
 import math
 import argparse
 import json
+import sys
 from collections import Counter
 from typing import Optional
 
 
-def tokenize(text: str) -> list[str]:
+def tokenize(text: str) -> list:
     """Lowercase and split text into word tokens, removing punctuation."""
     text = text.lower()
     words = re.findall(r"\b[a-z]{2,}\b", text)
@@ -103,58 +106,76 @@ def compute_density(text: str, keyword: str) -> dict:
     }
 
 
-def top_keywords(text: str, top_n: int = 10) -> list[dict]:
+def top_keywords(text: str, top_n: int = 10, min_freq: int = 1) -> list:
     """Return the top N non-stopword keywords with their counts and density."""
     tokens = tokenize(text)
     total = len(tokens)
     filtered = [t for t in tokens if t not in STOPWORDS]
     counter = Counter(filtered)
     results = []
-    for word, count in counter.most_common(top_n):
+    for word, count in counter.most_common():
+        if count < min_freq:
+            break
         results.append({
             "keyword": word,
             "count": count,
             "density_pct": round((count / total) * 100, 3),
         })
+        if len(results) >= top_n:
+            break
     return results
-
-
-def analyze(text: str, keyword: Optional[str] = None) -> dict:
-    """Full analysis: top keywords + optional specific keyword density."""
-    report = {
-        "word_count": len(tokenize(text)),
-        "top_keywords": top_keywords(text, top_n=10),
-    }
-    if keyword:
-        report["target_keyword"] = compute_density(text, keyword)
-    return report
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="SyntaxCraft Keyword Density Analyzer"
+        description="SyntaxCraft Keyword Density Analyzer",
+        epilog="Run with no arguments for a built-in demo."
     )
-    group = parser.add_mutually_exclusive_group(required=True)
+    group = parser.add_mutually_exclusive_group(required=False)
     group.add_argument("--text", type=str, help="Raw text string to analyze")
     group.add_argument("--file", type=str, help="Path to a .txt file to analyze")
-    parser.add_argument("--keyword", type=str, help="Target keyword or phrase to measure")
-    parser.add_argument("--top", type=int, default=10, help="Number of top keywords to show")
+    parser.add_argument("--keyword", type=str, default="SEO automation", help="Target keyword or phrase to measure")
+    parser.add_argument("--top", type=int, default=10, help="Number of top keywords to show (must be positive)")
+    parser.add_argument("--min-freq", type=int, default=1, dest="min_freq",
+                        help="Minimum frequency to include in top-keywords list (default: 1)")
+    parser.add_argument("--output", type=str, help="Save full report to this JSON file")
     args = parser.parse_args()
 
+    # Validate --top
+    if args.top < 1:
+        print("[ERROR] --top must be a positive integer.", file=sys.stderr)
+        sys.exit(1)
+
     if args.file:
-        with open(args.file, "r", encoding="utf-8") as f:
-            text = f.read()
-    else:
+        try:
+            with open(args.file, "r", encoding="utf-8") as f:
+                text = f.read()
+        except FileNotFoundError:
+            print(f"[ERROR] File not found: {args.file}", file=sys.stderr)
+            sys.exit(1)
+    elif args.text:
         text = args.text
+    else:
+        print("[INFO] Running in demo mode. Use --text or --file for your data.\n")
+        text = (
+            "SEO automation tools help webmasters optimize their SEO strategy and rankings. "
+            "Professional SEO requires careful keyword research, metadata synthesis, and internal link structure. "
+            "Automated tools streamline search engine optimization workflows."
+        )
 
     report = {
         "word_count": len(tokenize(text)),
-        "top_keywords": top_keywords(text, top_n=args.top),
+        "top_keywords": top_keywords(text, top_n=args.top, min_freq=args.min_freq),
     }
     if args.keyword:
         report["target_keyword"] = compute_density(text, args.keyword)
 
-    print(json.dumps(report, indent=2, ensure_ascii=False))
+    if args.output:
+        with open(args.output, "w", encoding="utf-8") as f:
+            json.dump(report, f, indent=2, ensure_ascii=False)
+        print(f"[OK] Report saved to {args.output}")
+    else:
+        print(json.dumps(report, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

@@ -150,17 +150,17 @@ def main():
     parser = argparse.ArgumentParser(
         description="SyntaxCraft OpenGraph & Twitter Card Generator"
     )
-    parser.add_argument("--title", required=True)
-    parser.add_argument("--description", required=True)
-    parser.add_argument("--url", required=True, help="Canonical page URL")
-    parser.add_argument("--image", required=True, help="og:image URL (HTTPS, 1200x630 recommended)")
+    parser.add_argument("--title", default="SyntaxCraft — Production SEO & Webmaster Utilities")
+    parser.add_argument("--description", default="Modular Python SEO automation tools for webmasters, developers, and online stores.")
+    parser.add_argument("--url", default="https://syntaxcraft.dev", help="Canonical page URL")
+    parser.add_argument("--image", default="https://syntaxcraft.dev/og-image.jpg", help="og:image URL (HTTPS, 1200x630 recommended)")
     parser.add_argument("--site-name", default="SyntaxCraft")
     parser.add_argument("--type", default="website", dest="og_type")
     parser.add_argument("--twitter-card", default="summary_large_image")
-    parser.add_argument("--twitter-site", default=None, help="@handle for Twitter")
+    parser.add_argument("--twitter-site", default="@syntaxcraft2026", help="@handle for Twitter")
     parser.add_argument("--locale", default="en_US")
-    parser.add_argument("--image-width", type=int, default=None)
-    parser.add_argument("--image-height", type=int, default=None)
+    parser.add_argument("--image-width", type=int, default=1200)
+    parser.add_argument("--image-height", type=int, default=630)
     args = parser.parse_args()
 
     result = generate_og_tags(
@@ -189,3 +189,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

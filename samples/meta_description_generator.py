@@ -6,6 +6,10 @@ to the 155-160 character Google SERP pixel limit.
 Usage:
     python meta_description_generator.py --title "Best SEO Tools 2025" --keyword "seo tools"
     python meta_description_generator.py --content content.txt --keyword "keyword research"
+    python meta_description_generator.py --batch items.csv --output results.json
+    python meta_description_generator.py  (demo mode)
+
+CSV batch format: columns title,keyword  (header row required)
 
 Author: SyntaxCraft Studio | contact@syntaxcraft.dev
 """
@@ -13,6 +17,8 @@ Author: SyntaxCraft Studio | contact@syntaxcraft.dev
 import re
 import argparse
 import json
+import sys
+import csv
 from typing import Optional
 
 
@@ -53,7 +59,6 @@ def truncate_to_serp_limit(text: str, max_chars: int = 158) -> str:
 def inject_keyword(template: str, keyword: str) -> str:
     """Ensure keyword appears naturally in the description."""
     if keyword.lower() not in template.lower():
-        # Prepend keyword if not already present
         template = f"{keyword.capitalize()}: {template}"
     return template
 
@@ -105,6 +110,9 @@ def generate_meta_description(
             status = "BORDERLINE"
         else:
             status = "TOO_LONG"
+        # Print char count warning to stdout for interactive use
+        if status != "OK":
+            print(f"[WARN] Candidate char count {char_count} ({status}): {v[:60]}…", file=sys.stderr)
         candidates.append({
             "text": v,
             "char_count": char_count,
@@ -130,24 +138,56 @@ def generate_meta_description(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="SyntaxCraft Meta Description Generator"
+        description="SyntaxCraft Meta Description Generator",
+        epilog="Run with no arguments for a built-in demo."
     )
-    parser.add_argument("--title", required=True, help="Page or product title")
-    parser.add_argument("--keyword", required=True, help="Target SEO keyword")
+    parser.add_argument("--title", default=None, help="Page or product title")
+    parser.add_argument("--keyword", default=None, help="Target SEO keyword")
     parser.add_argument("--content", help="Path to .txt file for content-based generation")
+    parser.add_argument("--batch", help="CSV file with columns: title,keyword (batch mode)")
+    parser.add_argument("--output", help="Save results to this JSON file")
     args = parser.parse_args()
 
-    snippet = None
-    if args.content:
-        with open(args.content, "r", encoding="utf-8") as f:
-            snippet = f.read()[:500]  # Use first 500 chars
+    results = []
 
-    result = generate_meta_description(
-        title=args.title,
-        keyword=args.keyword,
-        content_snippet=snippet,
-    )
-    print(json.dumps(result, indent=2, ensure_ascii=False))
+    if args.batch:
+        try:
+            with open(args.batch, "r", encoding="utf-8", errors="replace") as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    t = row.get("title", "").strip()
+                    k = row.get("keyword", "").strip()
+                    if t and k:
+                        results.append(generate_meta_description(title=t, keyword=k))
+        except FileNotFoundError:
+            print(f"[ERROR] Batch file not found: {args.batch}", file=sys.stderr)
+            sys.exit(1)
+    else:
+        snippet = None
+        if args.content:
+            with open(args.content, "r", encoding="utf-8") as f:
+                snippet = f.read()[:500]
+
+        title = args.title or "Production-Grade Python SEO Automation Tools"
+        keyword = args.keyword or "SEO automation tools"
+
+        if not args.title:
+            print("[INFO] Running in demo mode. Use --title and --keyword for your data.\n")
+
+        results.append(generate_meta_description(
+            title=title,
+            keyword=keyword,
+            content_snippet=snippet,
+        ))
+
+    output_data = results if len(results) > 1 else results[0]
+
+    if args.output:
+        with open(args.output, "w", encoding="utf-8") as f:
+            json.dump(output_data, f, indent=2, ensure_ascii=False)
+        print(f"[OK] Results saved to {args.output}")
+    else:
+        print(json.dumps(output_data, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

@@ -34,7 +34,7 @@ useHead({
 
             <div class="hero-actions">
               <NuxtLink to="/#tools" class="btn btn-primary">
-                Explore 15 SEO Tools ($5–$19)
+                Explore Modular SEO Tools (€3.99–€17.99)
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </NuxtLink>
               <a href="#showcase" class="btn btn-secondary">
@@ -92,13 +92,14 @@ useHead({
             </div>
 
             <div>
-              <NuxtLink
-                :to="'/contact?tool=' + tool.id"
-                class="btn btn-secondary btn-sm"
-                style="width: 100%; text-align: center; justify-content: center; font-size: 0.84rem;"
+              <a
+                :href="tool.checkoutUrl || ('/contact?tool=' + tool.id)"
+                target="_blank"
+                class="btn btn-primary btn-sm"
+                style="width: 100%; text-align: center; justify-content: center; font-size: 0.84rem; text-decoration: none;"
               >
-                License Utility ({{ tool.price }})
-              </NuxtLink>
+                Instant Buy ({{ tool.price }}) &rarr;
+              </a>
             </div>
           </div>
         </div>
@@ -180,8 +181,19 @@ useHead({
               </li>
             </ul>
 
+            <a
+              v-if="pkg.checkoutUrl"
+              :href="pkg.checkoutUrl"
+              target="_blank"
+              class="btn"
+              :class="pkg.popular ? 'btn-primary' : 'btn-secondary'"
+              style="width: 100%; text-decoration: none;"
+            >
+              {{ pkg.cta }} &rarr;
+            </a>
             <NuxtLink
-              :to="'/contact?package=' + pkg.id"
+              v-else
+              :to="pkg.id === 'single-tool' ? '/#tools' : '/contact?package=' + pkg.id"
               class="btn"
               :class="pkg.popular ? 'btn-primary' : 'btn-secondary'"
               style="width: 100%;"
